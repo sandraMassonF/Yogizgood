@@ -1,0 +1,26 @@
+.sidenav {
+    width: 40px;
+    height: 80px;
+    position: fixed;
+    z-index: 500;
+    top: 480px;
+    left: 10px;
+    background: #bf8b68a9;
+    border-radius: 10px;
+    
+  } 
+  
+  .sidenav img{
+    width: 70%;
+    margin: 6px;
+  }
+  
+  .sidenav a {
+    text-decoration: none;
+    display: block;
+  }
+  
+  .sidenav a:hover {
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.148);
+    border-radius: 10px;
+  }

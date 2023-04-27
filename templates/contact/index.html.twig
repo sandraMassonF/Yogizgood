@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+<body>
+<h2 class="titrepage">Contact</h2>
+    <main class="contener">
+    <section class=" section form">
+        <h3 class="titreh3 txt_vert">Formulaire de contact</h3>
+       <form>
+        <input type="text" placeholder="Nom" class="input "/>
+        <input type="text" placeholder="Prénom" class="input xs"/><br>
+        <input type="email" placeholder="Email" class="input xl"/><br>
+        <input type="text" placeholder="Objet" class="input xl"/><br>
+        <textarea placeholder="Message" class="input xl txt"></textarea><br>
+        <input type="submit" class="bouton btn_marron">
+       </form>
+    </section>
+
+    <section class="section coord">
+        <h3 class="titreh3 txt_vert">Cordonnées</h3>
+        <div class="mail"><img src="../img/gmail.png" alt="gmail"><a href="mailto:yogizgood@gmail.com">yogizgood@gmail.com</a></div>
+        <div class="phone"><img src="../img/phone.png" alt="phone"><a href="tel:+33679588858">06 79 58 88 58</a></div>
+        <div class="maps"><img src="../img/maps.png" alt="maps"><a href="https://goo.gl/maps/1QvQNLzfeRH55uv48">3 Place Jules Ferry, 05000 Gap</a></div>
+        <div class="maps"><iframe
+            width="450"
+            height="250"
+            frameborder="0" style="border:0"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDmZ3q3--3cBChsfqATGXib0OCQrlrNSHo&q=3%20Place%20Jules%20Ferry%2005000%20Gap&key=AIzaSyDmZ3q3--3cBChsfqATGXib0OCQrlrNSHo"
+            allowfullscreen>
+          </iframe></div>
+     </section>
+</main>
+</body>
+{% endblock %}

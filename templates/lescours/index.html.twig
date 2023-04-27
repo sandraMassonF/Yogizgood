@@ -1,0 +1,115 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LescoursController!{% endblock %}
+
+{% block body %}
+ 
+    <body>
+       <h2 class="titrepage">Les cours</h2>
+       <main>
+       <section class="cours bg_blcasse">          
+            <img src="../img/logoyoggie1.png" alt="yoggie assise">
+    
+        <div class="presentiel">
+            <h4>Cours de yoga en présentiel</h4>
+            <p>Les cours ont lieu dans une salle agréable dans le centre ville de Gap. Ils se déroulent en petit groupe (maximum 8 participants) et sont adaptés à chacun.
+                Les cours sont ouverts à tous les niveaux et tous les profils, des personnes souhaitant reprendre une activité physique, aux sportifs avérés souhaitant compléter leur pratique!
+                Des tapis, des briques et des sangles sont disponibles sur place, mais vous pouvez également amener votre propre matériel.<br>
+            <span class="txt1">Adresse de la salle de cours : <a href="https://goo.gl/maps/sZNkMpH8CCNaznMC9" target="_blank">3 place Jules Ferry, 05000 Gap</a></span>
+            </p>
+
+            <h5 class="horaires_tarifs">Horaires</h5>
+            <p>Tous les Lundi et Jeudi  :<br>
+               9h-10h,  10h30-11h30,  12h-13h<br>16h-17h,  17h30-18h30,  19h-20h
+            </p>
+            <h5 class="horaires_tarifs">Tarifs</h5>
+            <p><span class="seanceofferte">La 1ère scéance est offerte!</span><br>
+            Cours à l'unité : 12€<br>
+            <a href="#" class="btn_marron">Je réserve!</a><br>
+            Carte de 10 cour : 110€<br>
+            <a href="#" class="btn_marron">Je commande</a></p>
+            <p class="txt2">Il faut réserver votre place via ce site pour chaque cours auquel vous souhaitez participer.<br>
+                <span class="txt_marron">Attention, tout cours annulé moins de 6h à l'avance sera compté comme dû.</span>
+            </p>
+            <hr id="cours_ind">
+
+        </div>
+
+        <div class="presentiel bg_beige"> 
+            <h4>Cours de yoga individuel</h4>
+            <p>Si vous souhaitez un cours particulier, axé sur <span class="txt_vert">vos besoins et vos envies,</span> c'est possible!
+                En prévention de maladies ou en accompagnement de soutien d'une pathologie, le yoga est un excellent moyen d'agir sur le corps et sur le mental. Dans ces séances nous pourrons adapter la pratique à votre état mental et physique du moment.<br>
+                Lors de la séance, nous pourrons parler ensemble des difficultés rencontrées et je vous transmettrai <span class="txt_vert">une séance totalement adaptée.</span> Vous pourrez ainsi la refaire chez vous. Pour tout renseignement, merci de me contacter par mail ou par téléphone.
+            </p>
+
+            <h5 class="horaires_tarifs">Horaires</h5>
+            <p>Tous les Mercredi :<br>
+                10h30-11h30, 12h-13h
+               <br> 17h30-18h30, 19h-20h
+            </p>
+            
+            <p>Tarif Séance individuelle : 50€<br>
+           
+            <a href="#" class="btn_marron">Je réserve!</a></p>
+            <p class="txt2">Il faut réserver votre place via ce site pour chaque cours auquel vous souhaitez participer.<br>
+                <span class="txt_marron">Attention, tout cours annulé moins de 6h à l'avance sera compté comme dû.</span>
+            </p>
+
+        </div>
+       </section>
+
+
+       <section class="cours bg_blcasse">          
+        <img src="../img/logoyoggie2.png" alt="yoggie debout">
+
+        <div class="presentiel">
+        <h4>Cours de yoga en ligne</h4>
+        <p>Les cours ont par le biais de l'application Zoom.
+            Les cours sont ouverts à tous les niveaux et tous les profils, des personnes souhaitant reprendre une activité physique, aux sportifs avérés souhaitant compléter leur pratique!
+            Des tapis, des briques et des sangles sont disponibles sur place, mais vous pouvez également amener votre propre matériel.
+        </p>
+
+        <h5 class="horaires_tarifs">Horaires</h5>
+        <p>Tous les Mardi et Vendredi  :<br>
+           9h-10h,  10h30-11h30,  12h-13h<br>16h-17h,  17h30-18h30,  19h-20h
+        </p>
+        <h5 class="horaires_tarifs">Tarifs</h5>
+        <p><span class="seanceofferte">La 1ère scéance est offerte!</span><br>
+        Cours à l'unité : 10€<br>
+        <a href="#" class="btn_marron">Je réserve!</a><br>
+        Carte de 10 cour : 90€<br>
+        <a href="#" class="btn_marron">Je commande</a></p>
+        <p class="txt2">Il faut réserver votre place via ce site pour chaque cours auquel vous souhaitez participer.<br>
+            <span class="txt_marron">Attention, tout cours annulé moins de 6h à l'avance sera compté comme dû.</span>
+        </p>
+        <hr>
+        <h4>Planning des cours</h4>
+        <img src="../img/calendrier.png" alt="calendrier des cours" id="planning">
+
+    </div>
+    </section>
+
+    <section class="cours bg_beige">          
+        <img src="../img/ordi.png" alt="ordinateur">
+
+        <div class="presentiel">
+        <h4>Cours et programmes en téléchargement</h4>
+        <p>Si vous souhaitez pratiquer en autonomie, et à votre rythme, vous retrouverez des programmes et des cours de yoga à télécharger.<br>
+            <span class="seanceofferte">Vous y aurez accès à vie!</span>    
+        </p>
+
+        
+        <p>Programmes disponibles :<br>
+            La routine matin................... 75€<br>
+            <span class="txt2">7 vidéos, une par jour pour une routine journalière. Bien-être garanti tous les jours!</span>
+            <a href="#" class="btn_marron">Je découvre!</a><br>
+            Yoga, mode de vie................ 120€<br>
+            <span class="txt2">12 vidéos, adaptées en fonction de vos humeurs</span><br>
+            <a href="#" class="btn_marron">Je découvre!</a></p>
+
+            <div class="logo_yogizgood"></div>
+    </div>  
+    </section>
+    </main>
+    </body>
+{% endblock %}

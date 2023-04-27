@@ -1,0 +1,135 @@
+
+  .cours{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+    text-align: center;
+    line-height: 40px;
+    
+  }
+  
+  .cours img{
+    margin-top: 70px;
+    width: 150px;
+
+  }
+
+  .presentiel{
+    font-family: 'Bree Light'; 
+    
+  }
+
+
+  .presentiel h4{
+  font-family: 'Niconne Regular';
+  font-size: 36px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+  color: #99CBAB;
+  
+  }
+
+ .presentiel p{
+  margin: auto;
+  width: 60%;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+  font-size: 18px;
+  line-height: 40px;
+  
+}
+
+.txt1 a{
+color: black;
+}
+
+
+.presentiel .txt1{
+  display: inline-block;
+  width: 550px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-style: italic;
+  box-shadow: 5px 5px 5px rgba(13, 13, 13, 0.021);
+
+}
+
+.presentiel .txt1:hover{
+  box-shadow: 5px 5px 5px rgba(13, 13, 13, 0.068);
+}
+
+
+.horaires_tarifs {
+margin-top: 20px;
+font-size: 26px;
+color:#99CBAB ;
+margin-bottom: 20px;
+text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+text-decoration: underline;
+
+}
+  
+.presentiel .seanceofferte{
+display: inline-block;
+color: #BF8B68;
+font-style: italic;
+font-size: 24px;
+text-shadow: 1px 1px 2px #0a0a0a7e ;
+margin-top: 20px;
+margin-bottom: 20px;
+
+}
+
+.presentiel .txt2{
+margin-top: 30px;
+line-height: 40px;
+font-size: 18px;
+
+
+}
+
+.presentiel .txt_marron{
+display: inline-block;
+padding-bottom: 50px;
+
+}
+
+.presentiel hr{
+  width: 50%;
+  border: 1px solid #6b3c1d;
+  color: #6b3c1d;
+  margin-bottom: 0;
+  margin: auto;
+}
+
+.btn_marron{
+ margin-top: 30px;
+ margin-bottom: 30px;
+}
+
+.texte2 h4{
+  font-family: 'Niconne Regular';
+  font-size: 40px;
+  margin-bottom: 50px;
+  color: #BF8B68;
+  
+}
+
+#planning{
+  width: 65%;
+  margin-bottom: 70px;
+}
+
+
+.logo_yogizgood{
+background-image: url(../img/yogizgood1.1.png);
+width: 60%;
+height: 30vh;
+background-size: 85%;
+background-repeat: no-repeat;
+background-position: center;
+margin: auto;
+
+}
+

@@ -1,0 +1,168 @@
+@font-face {
+    font-family: 'Bree CYR';
+    src: url('BreeCYR-Semibold.eot');
+    src: local('Bree CYR Semibold'), local('BreeCYR-Semibold'),
+        url('BreeCYR-Semibold.eot?#iefix') format('embedded-opentype'),
+        url('BreeCYR-Semibold.woff2') format('woff2'),
+        url('BreeCYR-Semibold.woff') format('woff'),
+        url('BreeCYR-Semibold.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bree CYR';
+    src: url('BreeCYR-SemiboldOblique.eot');
+    src: local('Bree CYR Semibold Italic'), local('BreeCYR-SemiboldOblique'),
+        url('BreeCYR-SemiboldOblique.eot?#iefix') format('embedded-opentype'),
+        url('BreeCYR-SemiboldOblique.woff2') format('woff2'),
+        url('BreeCYR-SemiboldOblique.woff') format('woff'),
+        url('BreeCYR-SemiboldOblique.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Bree CYR';
+    src: url('BreeCYR-LightOblique.eot');
+    src: local('Bree CYR Light Italic'), local('BreeCYR-LightOblique'),
+        url('BreeCYR-LightOblique.eot?#iefix') format('embedded-opentype'),
+        url('BreeCYR-LightOblique.woff2') format('woff2'),
+        url('BreeCYR-LightOblique.woff') format('woff'),
+        url('BreeCYR-LightOblique.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Bree CYR';
+    src: url('BreeCYR-ThinOblique.eot');
+    src: local('Bree CYR Thin Italic'), local('BreeCYR-ThinOblique'),
+        url('BreeCYR-ThinOblique.eot?#iefix') format('embedded-opentype'),
+        url('BreeCYR-ThinOblique.woff2') format('woff2'),
+        url('BreeCYR-ThinOblique.woff') format('woff'),
+        url('BreeCYR-ThinOblique.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Bree CYR';
+    src: url('BreeCYR-Thin.eot');
+    src: local('Bree CYR Thin'), local('BreeCYR-Thin'),
+        url('BreeCYR-Thin.eot?#iefix') format('embedded-opentype'),
+        url('BreeCYR-Thin.woff2') format('woff2'),
+        url('BreeCYR-Thin.woff') format('woff'),
+        url('BreeCYR-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bree CYR';
+    src: url('BreeCYR-BoldOblique.eot');
+    src: local('Bree CYR Bold Italic'), local('BreeCYR-BoldOblique'),
+        url('BreeCYR-BoldOblique.eot?#iefix') format('embedded-opentype'),
+        url('BreeCYR-BoldOblique.woff2') format('woff2'),
+        url('BreeCYR-BoldOblique.woff') format('woff'),
+        url('BreeCYR-BoldOblique.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Bree CYR Book';
+    src: url('BreeCYR-BookOblique.eot');
+    src: local('Bree CYR Book Italic'), local('BreeCYR-BookOblique'),
+        url('BreeCYR-BookOblique.eot?#iefix') format('embedded-opentype'),
+        url('BreeCYR-BookOblique.woff2') format('woff2'),
+        url('BreeCYR-BookOblique.woff') format('woff'),
+        url('BreeCYR-BookOblique.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Bree CYR';
+    src: url('BreeCYR-Regular.eot');
+    src: local('Bree CYR'), local('BreeCYR-Regular'),
+        url('BreeCYR-Regular.eot?#iefix') format('embedded-opentype'),
+        url('BreeCYR-Regular.woff2') format('woff2'),
+        url('BreeCYR-Regular.woff') format('woff'),
+        url('BreeCYR-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bree CYR Book';
+    src: url('BreeCYR-Book.eot');
+    src: local('Bree CYR Book'), local('BreeCYR-Book'),
+        url('BreeCYR-Book.eot?#iefix') format('embedded-opentype'),
+        url('BreeCYR-Book.woff2') format('woff2'),
+        url('BreeCYR-Book.woff') format('woff'),
+        url('BreeCYR-Book.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bree CYR';
+    src: url('BreeCYR-Light.eot');
+    src: local('Bree CYR Light'), local('BreeCYR-Light'),
+        url('BreeCYR-Light.eot?#iefix') format('embedded-opentype'),
+        url('BreeCYR-Light.woff2') format('woff2'),
+        url('BreeCYR-Light.woff') format('woff'),
+        url('BreeCYR-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bree CYR';
+    src: url('BreeCYR-ExtraboldOblique.eot');
+    src: local('Bree CYR Extrabold Italic'), local('BreeCYR-ExtraboldOblique'),
+        url('BreeCYR-ExtraboldOblique.eot?#iefix') format('embedded-opentype'),
+        url('BreeCYR-ExtraboldOblique.woff2') format('woff2'),
+        url('BreeCYR-ExtraboldOblique.woff') format('woff'),
+        url('BreeCYR-ExtraboldOblique.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Bree CYR';
+    src: url('BreeCYR-RegularOblique.eot');
+    src: local('Bree CYR Italic'), local('BreeCYR-RegularOblique'),
+        url('BreeCYR-RegularOblique.eot?#iefix') format('embedded-opentype'),
+        url('BreeCYR-RegularOblique.woff2') format('woff2'),
+        url('BreeCYR-RegularOblique.woff') format('woff'),
+        url('BreeCYR-RegularOblique.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Bree CYR';
+    src: url('BreeCYR-Bold.eot');
+    src: local('Bree CYR Bold'), local('BreeCYR-Bold'),
+        url('BreeCYR-Bold.eot?#iefix') format('embedded-opentype'),
+        url('BreeCYR-Bold.woff2') format('woff2'),
+        url('BreeCYR-Bold.woff') format('woff'),
+        url('BreeCYR-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bree CYR';
+    src: url('BreeCYR-Extrabold.eot');
+    src: local('Bree CYR Extrabold'), local('BreeCYR-Extrabold'),
+        url('BreeCYR-Extrabold.eot?#iefix') format('embedded-opentype'),
+        url('BreeCYR-Extrabold.woff2') format('woff2'),
+        url('BreeCYR-Extrabold.woff') format('woff'),
+        url('BreeCYR-Extrabold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+

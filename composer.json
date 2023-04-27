@@ -80,6 +80,18 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
+        ],
+
+        "reset": [
+            "symfony console doctrine:database:drop --force",
+            "symfony console doctrine:database:create",
+            "symfony console doctrine:migration:migrate -n",
+            "symfony console doctrine:fixture:load -n"
+        ],
+
+        "server": [
+            "symfony server:stop",
+            "symfony server:start"
         ]
     },
     "conflict": {
