@@ -1,0 +1,4 @@
+<form method="post" action="{{ path('app_session_delete', {'id': session.id}) }}" onsubmit="return confirm('Etes-vous sur de vouloir supprimer?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ session.id) }}">
+    <button class="btn bg_red col-2 mb-4">Supprimer</button>
+</form>

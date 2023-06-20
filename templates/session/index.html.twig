@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Planning des cours{% endblock %}
+
+{% block body %}
+    <h1 class="titreh4 text-center my-5">Planning des cours</h1>
+<div class="container">
+    <table class="table my-5">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Durée du cours</th>
+                <th>Date et heure</th>
+                <th>Nombre de places</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for session in sessions %}
+            <tr>
+                <td>{{ session.id }}</td>
+                <td>{{ session.duration }}</td>
+                <td>{{ session.date ? session.date|date('d-m-Y H:i') : '' }}</td>
+                <td>{{ session.places }}</td>
+                <td>
+                    <a href="{{ path('app_session_show', {'id': session.id}) }}" class="btn bg_orange col-4">Voir</a>
+                    <a href="{{ path('app_session_edit', {'id': session.id}) }}" class="btn bg_marron col-4">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_session_new') }}" class="btn bg_mint">Ajouter un cours</a>
+    </div>
+{% endblock %}

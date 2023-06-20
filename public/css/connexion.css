@@ -1,0 +1,59 @@
+.logo_yogizgood{
+    background-image: url(../img/yogizgood1.1.png);
+    width: 50%;
+    height: 30vh;
+    background-size: 85%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: auto;
+    margin-bottom: 40px;
+
+    
+}
+
+.connexion{
+   text-align: center;
+   margin-bottom: 50px;
+}
+
+.bouton{
+    display: inline-block;
+    width: 250px ;
+    text-decoration: none;
+    padding: 20px;
+    margin: 20px;
+}
+
+.ins{
+    border: 2px solid rgba(128, 128, 128, 0.078);
+    box-shadow: 5px 3px 6px #50775e9e;
+    background-color: rgb(254, 252, 248);
+}
+
+.bouton:hover{
+    box-shadow: 6px 6px 8px #50775e9e;
+    transform: scale(1.1);
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+}
+
+.input{
+    width: 600px;
+    height: 4vh;
+    margin: auto;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 2px solid rgba(128, 128, 128, 0.26);
+    padding-left: 8px;
+}
+
+.btn_marron{
+    font-size: larger;
+    width: 130px;
+    box-shadow: 4px 4px 6px #50775e9e;
+    padding-top: 6px;
+    margin-top: 30px;
+}

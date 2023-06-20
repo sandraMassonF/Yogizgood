@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Session{% endblock %}
+
+{% block body %}
+<div class="container card shadow-lg mb-3 border-0 mt-5 col-4 form-label">
+    <h1 class="my-5">Cours</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ session.id }}</td>
+            </tr>
+            <tr>
+                <th>Durée</th>
+                <td>{{ session.duration }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ session.date ? session.date|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Places</th>
+                <td>{{ session.places }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_session_index') }}" class="btn bg_orange col-2 my-3">Retour</a>
+
+    <a href="{{ path('app_session_edit', {'id': session.id}) }}" class="btn bg_marron col-2 my-2">Modifier</a>
+
+    {{ include('session/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

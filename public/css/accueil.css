@@ -18,6 +18,7 @@ header{
     display: flex;
     justify-content: space-around;
     margin: auto;
+    padding: 50px;
   
   }
   
@@ -56,6 +57,7 @@ header{
   
   .btn_marron{
     padding-top: 10px;
+    margin: auto;
   } 
   
   h5{
@@ -122,7 +124,7 @@ header{
   
   .span1{
     font-weight: bold;
-    font-size: 10px;
+    font-size: 12px;
   
   
   }

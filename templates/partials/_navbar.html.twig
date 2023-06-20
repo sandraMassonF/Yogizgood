@@ -2,11 +2,11 @@
         <nav>
             
             <ul>
-                <a href={{ path('app_home') }}><img src="../img/logoseul.png" alt="logo yogizgood"></a>
+                <a href={{ path('app_home') }}><img src="{{ asset('img/logoseul.png') }}" alt="logo yogizgood"></a>
                 <li><a href={{ path('app_apropos') }}>A propos</a></li>
                 <li><a href={{ path('app_lescours') }}>Les cours</a></li>
                 <li><a href={{ path('app_contact') }}>Contact</a></li>
-                <li><a href="#">Connexion</a></li>
+                <li><a href={{ path('app_login') }}>Connexion</a></li>
             </ul>
         </nav>
     </header>
