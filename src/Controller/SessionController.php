@@ -14,14 +14,39 @@ use Symfony\Component\Routing\Annotation\Route;
 class SessionController extends AbstractController
 {
     #[Route('/', name: 'app_session_index', methods: ['GET'])]
-    public function index(SessionRepository $sessionRepository): Response
+
+
+    // public function index(SessionRepository $sessionRepositor): Response
+    // {
+      
+    //     return $this->render('session/index.html.twig', [
+    //         'sessions' => $sessionRepository->findAll(),
+    //     ]);
+    // }
+    public function liste(SessionRepository $sessionRepository)
     {
-        return $this->render('session/index.html.twig', [
-            'sessions' => $sessionRepository->findAll(),
-        ]);
+        $cours = $sessionRepository->findAll();
+
+        $events = [];
+
+        foreach ($cours as $cours) {
+            $event = [
+                'id' => $cours->getId(),
+                'duration' => $cours->getDuration(),
+                'date' => $cours->getDate()->format('d-m-Y'),
+                'kind'=> $cours->getKind(),
+                'places'=> $cours->getPlaces()
+            ];
+
+            $events[] = $event;
+        }
+
+        return $this->render('session/index.html.twig', ['controller_name' => 'SessionController']);
     }
 
+
     #[Route('/new', name: 'app_session_new', methods: ['GET', 'POST'])]
+
     public function new(Request $request, SessionRepository $sessionRepository): Response
     {
         $session = new Session();

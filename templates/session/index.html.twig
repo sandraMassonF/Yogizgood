@@ -2,10 +2,46 @@
 
 {% block title %}Planning des cours{% endblock %}
 
+{% block javascripts %}
+ <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
+{% endblock %}
+
 {% block body %}
     <h1 class="titreh4 text-center my-5">Planning des cours</h1>
 <div class="container">
-    <table class="table my-5">
+
+ <!--Start Calendrier -->
+
+            <div id="calendar">
+            </div>
+            
+ <!--End Calendrier -->
+
+{% block javascript %}
+<script>
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth',
+          locale :'fr',
+          timeZone : 'Europe/Paris',
+          headerToolbar : {
+            start: 'prev,next today',
+            center:'title',
+            end:'dayGridMonth,timeGridWeek'
+          }
+        });
+        calendar.render();
+      });
+
+    </script>
+{% endblock %}
+
+
+
+
+    {# <table class="table my-5">
         <thead>
             <tr>
                 <th>Id</th>
@@ -29,11 +65,11 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">Vous n'avez pas de cours</td>
             </tr>
         {% endfor %}
         </tbody>
-    </table>
+    </table> #}
 
     <a href="{{ path('app_session_new') }}" class="btn bg_mint">Ajouter un cours</a>
     </div>

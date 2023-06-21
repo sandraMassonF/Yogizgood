@@ -2,9 +2,13 @@
 
 namespace App\Form;
 
+use App\Entity\Kind;
+// use App\Entity\Kind;
+
 use App\Entity\Session;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
@@ -15,13 +19,18 @@ class SessionType extends AbstractType
     {
         $builder
             ->add('duration', TextType::class, [
-                'label' => 'Durée'
+                'label' => 'Durée (en Heure)'
             ])
 
             ->add('date',DateTimeType::class, [
                 'label' => 'Date et Heure',
                 'widget' => 'single_text'
             ])
+            
+            ->add('kind', EntityType::class, [
+                'label' => 'Type de cours',
+                'class' => Kind::class
+                ])
 
             ->add('places', TextType::class, [
                 'label' => 'Nombre de places',
@@ -29,6 +38,7 @@ class SessionType extends AbstractType
                 'class' => 'formulaire'
                 ]
             ])
+
         ;
     }
 
