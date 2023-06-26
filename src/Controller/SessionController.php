@@ -13,35 +13,37 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/session')]
 class SessionController extends AbstractController
 {
-    #[Route('/', name: 'app_session_index', methods: ['GET'])]
-
-
-    // public function index(SessionRepository $sessionRepositor): Response
+    // #[Route('/', name: 'app_session_index', methods: ['GET'])]
+    // public function index(SessionRepository $sessionRepository)
     // {
       
     //     return $this->render('session/index.html.twig', [
     //         'sessions' => $sessionRepository->findAll(),
     //     ]);
     // }
+    #[Route('/', name: 'app_session_index', methods: ['GET'])]
     public function liste(SessionRepository $sessionRepository)
     {
         $cours = $sessionRepository->findAll();
 
         $events = [];
 
-        foreach ($cours as $cours) {
+        foreach ($cours as $cour) {
             $event = [
-                'id' => $cours->getId(),
-                'duration' => $cours->getDuration(),
-                'date' => $cours->getDate()->format('d-m-Y'),
-                'kind'=> $cours->getKind(),
-                'places'=> $cours->getPlaces()
-            ];
+                "type" => $cour->getKind()->getType(),
+                "start" => $cour->getDate()->format('Y-m-d\TH:i:s'),
+                "allDay" => true,
+                "description" => $cour->getKind()->getDescription(),
+                "kind" => $cour->getKind()->getType(),
+                "formated_start" =>  $cour->getDate()->format('d/m/Y à H:i'),
+                'booking_url' => $this->generateUrl('app_booking', ['date' => $cour->getDate()->format('Y-m-d')])
+                ];
 
             $events[] = $event;
         }
+      
 
-        return $this->render('session/index.html.twig', ['controller_name' => 'SessionController']);
+        return $this->render('session/index.html.twig', ['events'=>$events, 'cours'=>$cours]);
     }
 
 

@@ -1,94 +1,125 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-  <link rel="stylesheet" href="{{ asset('css/style_reservation.css') }}" />    
+	<link rel="stylesheet" href="{{ asset('css/style_reservation.css') }}"/>
 {% endblock %}
 
-{% block javascripts %}
- <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
+{% block title %}Réservations
 {% endblock %}
-
-{% block title %}Réservations{% endblock %}
 
 {% block body %}
-<h2 class="titrepage">Réservations</h2>
-<body>
-    <section class="section1">
-        <div class="radio titreh4 txt_vert">
-              <input type="radio" id="presentiel" name="cours_type" value="Présentiel">
-              <label for="presentiel">Présentiel</label>
-          
-              <input type="radio" id="individuel" name="cours_type" value="Individuel">
-              <label for="individuel">Individuel</label>
-          
-              <input type="radio" id="enligne" name="cours_type" value="En ligne" checked>
-              <label for="enligne">En ligne</label>
-
-              
-        </div>
-
-        <div class="date">
-            <p>Prochaine date disponible :</p>
-            <p>#datedispo</p>
-
-        </div>
-    </section>
-    
-    <section class="section2">
-
-        <div class="calendar">
-            <!--Start Calendrier -->
-
-            <div id="calendar">
-            </div>
-            
-            <!--End Calendrier -->
-
-        <div class="creneaux">
-            <h4>#Date</h4>
-            <h5>Créneaux disponibles</h5>
-            <span class="creneau ligne">#heure <br> #places restantes</span>
-            <span class="creneau ligne">#heure <br> #places restantes</span>
-            <span class="creneau ligne">#heure <br> #places restantes</span>
-            <span class="creneau ligne">#heure <br> #places restantes</span>
-            <span class="creneau ligne">#heure <br> #places restantes</span>
-            <span class="creneau ligne">#heure <br> #places restantes</span>
-        </div>
+	<h2 class="titrepage">Réservations</h2>
+	<body>
+		<section class="section1">
 
 
+			<div class="date">
+				<p>Prochaine date disponible :</p>
+				<p>#datedispo</p>
 
-        <div class="details">
-            <h5>Détails</h5>
-            <p>Cours de Yoga collectif - En ligne -
-            <span class="dateheure_selectionnee">7 mars 2023 à 09h00</span>
-            </p>
-            <p>3 Place Jules Ferry 05000 GAP | Professeur : Céline Brenier
-            </p>
-            <p>1 heure : 
-                10 € | Proposé dans une formule 
-            </p>
-        </div>
-    </section>
-</body>
-{% block javascript %}
-<script>
+			</div>
+		</section>
 
-      document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth',
-          locale :'fr',
-          timeZone : 'Europe/Paris',
-          headerToolbar : {
-            start: 'prev,next today',
-            center:'title',
-            end:'dayGridMonth,timeGridWeek'
-          }
-        });
-        calendar.render();
-      });
+		<section class="section2">
 
-    </script>
-{% endblock %}
+			<div class="calendar">
+				<!--Start Calendrier -->
 
-{% endblock %}
+				<div id="calendar"></div>
+
+				<!--End Calendrier -->
+				
+
+					<div class="creneaux">
+						{% for session in cours %}
+							<h4>{{ session.date|date('d/m/Y') }}</h4>
+							<h5>Créneaux disponibles</h5>
+
+
+							<span class="creneau ligne">{{ session.date|date('H:i') }}
+								<br>
+								#places restantes</span>
+						{% else %}
+
+							<span class="creneau ligne">pas de session de jour</span>
+						{% endfor %}
+					</div>
+
+
+					<div class="details">
+						<h5>Détails</h5>
+						<p>Cours de Yoga collectif - En ligne -
+							<span class="dateheure_selectionnee">7 mars 2023 à 09h00</span>
+						</p>
+						<p>3 Place Jules Ferry 05000 GAP | Professeur : Céline Brenier
+						</p>
+						<p>1 heure : 
+							                10 € | Proposé dans une formule
+						</p>
+					</div>
+				</section>
+			</body>
+		{% endblock %}
+		{% block javascripts %}
+        	<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
+
+			<script>
+				
+                const bookings = {{ events|json_encode|raw }};
+                console.log(bookings);
+                document.addEventListener('DOMContentLoaded', function () {
+                    var calendarEl = document.getElementById('calendar');
+                    var calendar = new FullCalendar.Calendar(calendarEl, {
+                        initialView: 'dayGridMonth',
+                        themeSystem: 'bootstrap5',
+                        events: bookings,
+                        locale: 'fr',
+                        timeZone: 'Europe/Paris',
+                        headerToolbar: {
+                            start: 'prev,next today',
+                            center: 'title',
+                            end: 'dayGridMonth,timeGridWeek'
+                        },
+                        firstDay: 1,
+                        businessHours: [
+                            {
+                                daysOfWeek: [
+                                    1,
+                                    2,
+                                    3,
+                                    4,
+                                    5
+                                ],
+                                startTime: '09:00',
+                                endTime: '20:00'
+                            }
+                        ],
+                        weekends: false,
+                        slotMinTime: '09:00',
+                        slotMaxTime: '20:00',
+                        allDaySlot: false,
+
+                        eventClassNames: function (arg) {
+                            if (arg.event.extendedProps.kind == 'Présentiel') {
+                                return ['bg_mint']
+                            } else if (arg.event.extendedProps.kind == 'En ligne') {
+                                return ['bg_orange']
+                            } else if (arg.event.extendedProps.kind == 'Individuel') {
+                                return ['bg_marron']
+                            }
+                        },
+                        eventClick: function (info) {
+                            var eventObj = info.event;
+                            // je récupère mes info additionnelles
+                            const props = eventObj.toJSON().extendedProps;
+                            window.location.href = props.booking_url;
+
+                        }
+                    });
+
+                    calendar.render();
+                });
+
+</script>
+		{% endblock %}
+

@@ -15,4 +15,21 @@ class UserprofileController extends AbstractController
             'controller_name' => 'UserprofileController',
         ]);
     }
+
+    #[Route('/userprofile/edit', name: 'app_userprofile_edit')]
+    public function edit(): Response
+    {
+
+        return $this->render('userprofile/edit.html.twig', [
+            'controller_name' => 'UserprofileController',
+        ]);
+    }
+
+    #[Route('/userprofile/delete', name: 'app_userprofile_delete')]
+    public function delete(): Response
+    {
+
+        return $this->redirectToRoute('app_home');
+    }
+
 }

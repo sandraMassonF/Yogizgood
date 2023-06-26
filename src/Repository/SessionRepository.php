@@ -39,6 +39,23 @@ class SessionRepository extends ServiceEntityRepository
         }
     }
 
+   /**
+    * @return Session[] Returns an array of Booking objects
+    */
+    public function getByDate($date): array
+    {
+         $date = new \DateTime($date);
+         return $this->createQueryBuilder('s')
+             ->andWhere('s.date > :startDate')
+             ->setParameter(':startDate', $date->format('Y-m-d 00:00:00'))
+             ->andWhere('s.date < :endDate')
+             ->setParameter(':endDate', $date->format('Y-m-d 23:59:00'))
+             ->orderBy('s.date', 'ASC')
+             ->getQuery()
+             ->getResult()
+         ;
+    }
+
 //    /**
 //     * @return Session[] Returns an array of Session objects
 //     */

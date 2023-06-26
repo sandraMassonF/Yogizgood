@@ -21,6 +21,9 @@ class Kind
     #[ORM\OneToMany(mappedBy: 'kind', targetEntity: Session::class, orphanRemoval: true)]
     private Collection $sessions;
 
+    #[ORM\Column(length: 255)]
+    private ?string $type = null;
+
     public function __construct()
     {
         $this->kind = new ArrayCollection();
@@ -76,8 +79,20 @@ class Kind
 
     public function __toString()
         {
-            return $this->description;
+            return $this->type;
         }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(string $type): self
+    {
+        $this->type = $type;
+
+        return $this;
+    }
 }
 
 

@@ -94,6 +94,7 @@ header nav ul li:hover{
 
 .bg_marron{
   background-color:#a4704e;
+  border: none;
  }
 
 .bg_marron:hover{
@@ -102,6 +103,7 @@ header nav ul li:hover{
 
 .bg_mint{
   background-color: #99CBAB;
+  border: none;
 }
 
 .bg_mint:hover{
@@ -110,6 +112,7 @@ header nav ul li:hover{
 }
 .bg_orange{
   background-color: #F6941B;
+  border: none;
 }
 
 .bg_orange:hover{
@@ -118,7 +121,7 @@ header nav ul li:hover{
 }
 
 .bg_red{
-background-color: rgb(192, 5, 5);
+background-color: #c00505;
 
 }
 
@@ -214,4 +217,9 @@ footer{
 footer img{
   width: 5%;
  
+}
+
+#calendar{
+  width: 40%;
+  margin: auto;
 }
