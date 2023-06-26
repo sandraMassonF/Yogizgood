@@ -34,17 +34,18 @@
 
 
 			<div class="details">
-				{# <h4>Détails :</h4>
-					<p>Cours de Yoga collectif - En ligne -
-						<span class="dateheure_selectionnee">7 mars 2023 à 09h00
+				<h4>Détails :</h4>
+					<p> Cours de Yoga - {{ session.kind }} -
+						<span>{{ session.date|date('d/m/Y') ~ " à " ~ session.date|date('H:i') }}
                         </span>
 					</p>
 					<p>3 Place Jules Ferry 05000 GAP | Professeur : Céline Brenier
 					</p>
-					<p>1 heure : 
+					{# <p>1 heure : 
 					10 € | Proposé dans une formule
-					</p> #}
-			</div>
+					</p>#}
+                    <a href="" class="btn bg_marron">Je réserve !</a>
+			</div> 
 		</section>
 		</body>
 	{% endblock %}
@@ -56,7 +57,7 @@
     <script>
         
         const bookings = {{ events|json_encode|raw }};
-        
+        console.log(bookings);
         document.addEventListener('DOMContentLoaded', function () {
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -67,7 +68,8 @@
                 timeZone: 'Europe/Paris',
                 headerToolbar: {
                     start: 'prev,next today',
-                    center: 'title'
+                    center: 'title',
+                    end: 'dayGridMonth,timeGridWeek'
                 },
                 firstDay: 1,
                 businessHours: [
@@ -97,25 +99,13 @@
                         return ['bg_marron']
                     }
                 },
-                eventClick: function (info) {
-                    var eventObj = info.event;
-                    const props = eventObj.toJSON().extendedProps;
-                    window.location.href = props.booking_url;
-                }
-
-
+            
             });
 
             calendar.render();
         });
-        document.addEventListener('click',  function (detail){
-        var dataObj = detail.event;
-        const data = dataObj.toJSON().extendedProps;
-        const button = document.getElementsByClassName('creneau');       
-            window.location.href = props.booking_url;
-        }
-        );      
-    
+
+        
     </script>
 	{% endblock %}
 

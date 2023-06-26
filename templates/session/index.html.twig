@@ -2,117 +2,71 @@
 
 {% block title %}Planning des cours{% endblock %}
 
-{% block javascripts %}
- <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
-{% endblock %}
-
 {% block body %}
 
-<div class="container">
-
- <!--Start Calendrier -->
-
-            <div id="calendar">
-            </div>
-            
- <!--End Calendrier -->
- <!-- Modal -->
-        <div class="modal fade" id="booking-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-type" id="modal-type"></h5>
-                        
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-
-                        <p class="card-text" id="modal-start"></p>
-                        <p class="card-text" id="modal-description"></p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn bg_marron" data-bs-dismiss="modal">Je réserve !</button>
-                        {% for session in cours %}
-                        <a href="{{ path('app_session_show', {'id': session.id}) }}" class="btn bg_orange col-4">Voir</a>
-                        <a href="{{ path('app_session_edit', {'id': session.id}) }}" class="btn bg_marron col-4">Modifier</a>
-                        {% endfor %}
-                </div>
-            </div>
+    <div class="container">
+        <div id="calendar">
         </div>
-</div>
-        <!-- end modal -->
+            
+{% block javascripts %}
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'>
+    </script>
 
-{% block javascript %}
-<script>
-        const modalStart = document.getElementById('modal-start');
-        const modalType = document.getElementById('modal-type');
-        const modalDescription = document.getElementById('modal-description');
-
-
-        const modal = document.getElementById('booking-modal');
-        const bookingModal = bootstrap.Modal.getOrCreateInstance(modal);
-
-    const bookings = {{ events|json_encode|raw}};
-   
-      document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth',
-           themeSystem: 'bootstrap5',
-          events: bookings,
-          locale :'fr',
-          timeZone : 'Europe/Paris',
-          headerToolbar : {
-            start: 'prev,next today',
-            center:'title',
-            end:'dayGridMonth,timeGridWeek',
-
-          },
-             firstDay: 1,
-            businessHours: [{
-                        daysOfWeek: [1, 2, 3, 4, 5],
+    <script>
+        
+        const bookings = {{ events|json_encode|raw }};
+        console.log(bookings);
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                themeSystem: 'bootstrap5',
+                events: bookings,
+                locale: 'fr',
+                timeZone: 'Europe/Paris',
+                headerToolbar: {
+                    start: 'prev,next today',
+                    center: 'title'
+                },
+                firstDay: 1,
+                businessHours: [
+                    {
+                        daysOfWeek: [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5
+                        ],
                         startTime: '09:00',
                         endTime: '20:00'
-                    }],
-                    weekends: false,
-              slotMinTime: '09:00',
-             slotMaxTime: '20:00',
-             allDaySlot: false,
+                    }
+                ],
+                weekends: false,
+                slotMinTime: '09:00',
+                slotMaxTime: '20:00',
+                allDaySlot: false,
 
-    eventClassNames: function(arg) {
-    if (arg.event.extendedProps.kind == 'Présentiel') {
-    return [ 'bg_mint' ]
-    } else if (arg.event.extendedProps.kind == 'En ligne') {
-    return [ 'bg_orange' ]}
-    else if (arg.event.extendedProps.kind == 'Individuel') {
-    return [ 'bg_marron' ]
-    }},
-    eventClick: function(info) {
+                eventClassNames: function (arg) {
+                    if (arg.event.extendedProps.kind == 'Présentiel') {
+                        return ['bg_mint']
+                    } else if (arg.event.extendedProps.kind == 'En ligne') {
+                        return ['bg_orange']
+                    } else if (arg.event.extendedProps.kind == 'Individuel') {
+                        return ['bg_marron']
+                    }
+                },
+                eventClick: function (info) {
                     var eventObj = info.event;
-                    // je récupère mes info additionnelles
                     const props = eventObj.toJSON().extendedProps;
                     window.location.href = props.booking_url;
-                 
-                    {# modalStart.textContent = 'Le ' + props.formated_start;
-                    modalType.textContent = 'Type de cours : ' + props.type;
-                    modalDescription.textContent = props.description;
-                    // je montre la modal
-                    bookingModal.show(); #}
-                },
+                }
+            });
 
-    })
-
-        calendar.render();
-});   
-
-  
-</script>
+            calendar.render();
+        });
+    </script>
 {% endblock %}
-
-
-
-
-
-<a href="{{ path('app_session_new') }}" class="btn bg_mint">Ajouter un cours</a>
-</div>
+        <a href="{{ path('app_session_new') }}" class="btn bg_mint">Ajouter un cours</a>
+    </div>
 {% endblock %}

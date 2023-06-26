@@ -13,15 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/session')]
 class SessionController extends AbstractController
 {
-    // #[Route('/', name: 'app_session_index', methods: ['GET'])]
-    // public function index(SessionRepository $sessionRepository)
-    // {
-      
-    //     return $this->render('session/index.html.twig', [
-    //         'sessions' => $sessionRepository->findAll(),
-    //     ]);
-    // }
-    #[Route('/', name: 'app_session_index', methods: ['GET'])]
+      #[Route('/', name: 'app_session_index', methods: ['GET'])]
     public function liste(SessionRepository $sessionRepository)
     {
         $cours = $sessionRepository->findAll();
@@ -36,7 +28,7 @@ class SessionController extends AbstractController
                 "description" => $cour->getKind()->getDescription(),
                 "kind" => $cour->getKind()->getType(),
                 "formated_start" =>  $cour->getDate()->format('d/m/Y à H:i'),
-                'booking_url' => $this->generateUrl('app_booking', ['date' => $cour->getDate()->format('Y-m-d')])
+                'booking_url' => $this->generateUrl('app_booking', ['details' => $cour->getDate()->format('Y-m-d')])
                 ];
 
             $events[] = $event;
