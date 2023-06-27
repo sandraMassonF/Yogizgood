@@ -22,11 +22,11 @@ class SessionType extends AbstractType
                 'label' => 'Durée (en Heure)'
             ])
 
-            ->add('date',DateTimeType::class, [
+            ->add('date', DateTimeType::class, [
                 'label' => 'Date et Heure',
                 'widget' => 'single_text'
             ])
-            
+
             ->add('kind', EntityType::class, [
                 'label' => 'Type de cours',
                 'class' => Kind::class

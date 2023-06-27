@@ -10,10 +10,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
+
 #[Route('/session')]
+
 class SessionController extends AbstractController
 {
-      #[Route('/', name: 'app_session_index', methods: ['GET'])]
+    #[Route('/', name: 'app_session_index', methods: ['GET'])]
     public function liste(SessionRepository $sessionRepository)
     {
         $cours = $sessionRepository->findAll();
@@ -33,7 +36,7 @@ class SessionController extends AbstractController
 
             $events[] = $event;
         }
-      
+
 
         return $this->render('session/index.html.twig', ['events'=>$events, 'cours'=>$cours]);
     }

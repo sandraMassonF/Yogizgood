@@ -21,7 +21,7 @@ class UserController extends AbstractController
         ]);
     }
 
-    
+
     #[Route('/{id}', name: 'app_user_show', methods: ['GET'])]
     public function show(User $user): Response
     {
@@ -57,7 +57,4 @@ class UserController extends AbstractController
 
         return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
     }
-
-    
- 
 }
