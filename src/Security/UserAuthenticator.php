@@ -50,7 +50,7 @@ class UserAuthenticator extends AbstractLoginFormAuthenticator
         if ($this->security->isGranted('ROLE_ADMIN')) {
             return new RedirectResponse($this->urlGenerator->generate('app_admin'));
         }
-        return new RedirectResponse($this->urlGenerator->generate('app_userprofile'));
+        return new RedirectResponse($this->urlGenerator->generate('app_user'));
         throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 

@@ -11,8 +11,8 @@
 
 .titre_nom{
     text-align: center;
-    margin-top: 70px;
-    font-size: 28px;
+    margin-top: 50px;
+    font-size: 30px;
 }
 
 .connexion{
@@ -33,7 +33,7 @@
     border: 2px solid rgba(128, 128, 128, 0.078);
     box-shadow: 5px 3px 6px #50775e9e;
     background-color: rgb(254, 252, 248);
-    }
+}
 
 .bouton:hover{
     box-shadow: 6px 6px 8px #50775e9e;
@@ -66,6 +66,8 @@
 .container{
     width: 40%;
 }
+
+
 
 .box_cards{
     display: flex;
@@ -101,8 +103,10 @@
 .box_calendrier{
     display: flex;
     justify-content: center;
+    margin: auto;
 
 }
+
 
 .box_historique{
     display: flex;
@@ -246,4 +250,6 @@
   
   .tabcontent {
     display: none;
+    height: 500px;
+
   }

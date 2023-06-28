@@ -1,35 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/style_connexion.css') }}"/>
+{% endblock %}
+{% block title %}Mon compte personnel{% endblock %}
 
 {% block body %}
-    <h1>User</h1>
+<h2 class="titrepage">Bienvenue</h2>
+    <h4 class="titre_nom">{{ user.lastname }}</h4>
+  
 
-    <table class="table">
+<div class="tab">
+    <button class="tablinks" onclick="openCity(event, 'Profil')">Profil</button>
+    {# <button class="tablinks" onclick="openCity(event, 'Mes formules')">Mes formules</button> #}
+    <button class="tablinks" onclick="openCity(event, 'Calendrier')">Calendrier</button>
+    {# <button class="tablinks" onclick="openCity(event, 'Historique')">Historique</button> #}
+  </div>
+  
+  <div id="Profil" class="tabcontent">
+  <div class="infos container mb-5">  
+    <table class="table ">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ user.id }}</td>
+                <th>Prénom</th>
+                <td>{{ user.firstname }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ user.lastname }}</td>
             </tr>
             <tr>
                 <th>Email</th>
                 <td>{{ user.email }}</td>
-            </tr>
-            <tr>
-                <th>Roles</th>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-            </tr>
-            <tr>
-                <th>Password</th>
-                <td>{{ user.password }}</td>
-            </tr>
-            <tr>
-                <th>Firstname</th>
-                <td>{{ user.firstname }}</td>
-            </tr>
-            <tr>
-                <th>Lastname</th>
-                <td>{{ user.lastname }}</td>
             </tr>
             <tr>
                 <th>Credit</th>
@@ -37,10 +39,119 @@
             </tr>
         </tbody>
     </table>
+        <a href="{{ path('app_user_edit', {'id': user.id}) }}" class="btn bg_orange">Modifier</a>
+    </div>
+    </div>
+  
+  {# <div id="Mes formules" class="tabcontent">
+    <div class="box_cards">
+      <div class="cards">
+          <img src="../img/yogie1.png" alt="yoggie">
+          <h5>Carte 10 cours présentiel</h5>
+          <p>Cours restants : <span class="cours_restant">#5</span><br>
+          <a href="#" class="btn_marron">Je réserve</a>
+      </div>
+  
+      <div class="cards">
+          <img src="../img/yogie2.png" alt="yoggie">
+          <h5>Carte 10 cours en ligne</h5>
+          <p>Cours restants : <span class="cours_restant">#7</span><br>
+          <a href="#" class="btn_marron">Je réserve</a>
+      </div>
+  </div>  
+  </div> #}
+  
+  <div id="Calendrier" class="tabcontent">
+  <main class="box_calendrier">
+    	<div id="calendar">
+        </div>
 
-    <a href="{{ path('app_user_index') }}">back to list</a>
+    {% for details in bookings %}
+    <div>
+      <span>{{details.kind}}</span>
+      </div>
+    {% endfor %}
+     
+      <p class="txt_marron">Attention, tout cours annulé moins de 6h à l'avance sera compté comme dû.</p>
+    </div>
+  </main>
+  </div>
+  
+  {# <div id="Historique" class="tabcontent">
+    <main class="box_historique">
+      <div class="achats">
+          <h5 class="titreh3 txt_vert">Achats</h5>
+          <ul>
+              <li>#Date #Type #Prix</li>
+              <li>#Date #Type #Prix</li>
+          </ul>
+      </div>
+  
+      <div class="details">
+          <h5 class="titreh3 txt_vert">Détails</h5>
+          <ul>
+              <li>#Date #Heure #Type</li>
+              <li>#Date #Heure #Type</li>
+          </ul>
+      </div>
+  </main>
+  </div> #}
+{% endblock %}
+{% block javascripts %}
+    <script src = "../js/main_connexion.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'>
+    </script>
 
-    <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
+    <script>
+        const bookings = {{ bookings|json_encode|raw }};
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                themeSystem: 'bootstrap5',
+                events: bookings,
+                locale: 'fr',
+                timeZone: 'Europe/Paris',
+                headerToolbar: {
+                    start: 'prev,next today',
+                    center: 'title',
+                    end: 'dayGridMonth'
+                },
+                firstDay: 1,
+                businessHours: [
+                    {
+                        daysOfWeek: [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5
+                        ],
+                        startTime: '09:00',
+                        endTime: '20:00'
+                    }
+                ],
+                weekends: false,
+                slotMinTime: '09:00',
+                slotMaxTime: '20:00',
+                allDaySlot: false,
 
-    {{ include('user/_delete_form.html.twig') }}
+                eventClassNames: function (arg) {
+                    if (arg.event.extendedProps.kind == 'Présentiel') {
+                        return ['bg_mint']
+                    } else if (arg.event.extendedProps.kind == 'En ligne') {
+                        return ['bg_orange']
+                    } else if (arg.event.extendedProps.kind == 'Individuel') {
+                        return ['bg_marron']
+                    }
+                },
+            });
+
+            calendar.render();
+               
+            document.addEventListener('click', function () {
+                calendar.render()
+            });
+        });  
+    </script>
 {% endblock %}

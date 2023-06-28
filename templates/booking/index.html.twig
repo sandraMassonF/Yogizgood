@@ -25,25 +25,11 @@
                 </h4>
                     {{ session.date|date('H:i') }}<br>
 				    <p>#places restantes</p>
-				{# {% else %}
-                <span class="creneau ligne">pas de session ce jour
-                </span> #}
                 </a>
 			{% endfor %}
 			</div>
 
-
-			<div class="details">
-				{# <h4>Détails :</h4>
-					<p>Cours de Yoga collectif - En ligne -
-						<span class="dateheure_selectionnee">7 mars 2023 à 09h00
-                        </span>
-					</p>
-					<p>3 Place Jules Ferry 05000 GAP | Professeur : Céline Brenier
-					</p>
-					<p>1 heure : 
-					10 € | Proposé dans une formule
-					</p> #}
+			<div class="details">	
 			</div>
 		</section>
 		</body>
@@ -54,68 +40,62 @@
     </script>
 
     <script>
-        
-        const bookings = {{ events|json_encode|raw }};
-        
-        document.addEventListener('DOMContentLoaded', function () {
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
-                themeSystem: 'bootstrap5',
-                events: bookings,
-                locale: 'fr',
-                timeZone: 'Europe/Paris',
-                headerToolbar: {
-                    start: 'prev,next today',
-                    center: 'title'
-                },
-                firstDay: 1,
-                businessHours: [
-                    {
-                        daysOfWeek: [
-                            1,
-                            2,
-                            3,
-                            4,
-                            5
-                        ],
-                        startTime: '09:00',
-                        endTime: '20:00'
-                    }
-                ],
-                weekends: false,
-                slotMinTime: '09:00',
-                slotMaxTime: '20:00',
-                allDaySlot: false,
-
-                eventClassNames: function (arg) {
-                    if (arg.event.extendedProps.kind == 'Présentiel') {
-                        return ['bg_mint']
-                    } else if (arg.event.extendedProps.kind == 'En ligne') {
-                        return ['bg_orange']
-                    } else if (arg.event.extendedProps.kind == 'Individuel') {
-                        return ['bg_marron']
-                    }
-                },
-                eventClick: function (info) {
-                    var eventObj = info.event;
-                    const props = eventObj.toJSON().extendedProps;
-                    window.location.href = props.booking_url;
-                }
-
-
-            });
-
-            calendar.render();
-        });
-        document.addEventListener('click',  function (detail){
-        var dataObj = detail.event;
-        const data = dataObj.toJSON().extendedProps;
-        const button = document.getElementsByClassName('creneau');       
-            window.location.href = props.booking_url;
-        }
-        );      
+    // Récupérer les réservations depuis la variable PHP 'events' et les encoder en JSON
+    const bookings = {{ events|json_encode|raw }};
+    console.log(bookings);
     
-    </script>
+    // Attendre que le DOM soit chargé
+    document.addEventListener('DOMContentLoaded', function () {
+        // Récupérer l'élément HTML avec l'ID 'calendar'
+        var calendarEl = document.getElementById('calendar');
+        
+        // Créer une instance du calendrier FullCalendar
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            // Configurations du calendrier
+            initialView: 'dayGridMonth',
+            themeSystem: 'bootstrap5',
+            events: bookings,
+            locale: 'fr',
+            timeZone: 'Europe/Paris',
+            headerToolbar: {
+                start: 'prev,next today',
+                center: 'title',
+                end: 'dayGridMonth,timeGridWeek'
+            },
+            firstDay: 1,
+            businessHours: [
+                {
+                    daysOfWeek: [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ],
+                    startTime: '09:00',
+                    endTime: '20:00'
+                }
+            ],
+            weekends: false,
+            slotMinTime: '09:00',
+            slotMaxTime: '20:00',
+            allDaySlot: false,
+
+            // Appliquer des classes CSS aux événements en fonction du type de cours
+            eventClassNames: function (arg) {
+                if (arg.event.extendedProps.kind == 'Présentiel') {
+                    return ['bg_mint'];  // Ajouter la classe 'bg_mint'
+                } else if (arg.event.extendedProps.kind == 'En ligne') {
+                    return ['bg_orange'];  // Ajouter la classe 'bg_orange'
+                } else if (arg.event.extendedProps.kind == 'Individuel') {
+                    return ['bg_marron'];  // Ajouter la classe 'bg_marron'
+                }
+            },
+        });
+
+        // Afficher le calendrier
+        calendar.render();
+    });
+</script>
 	{% endblock %}
 

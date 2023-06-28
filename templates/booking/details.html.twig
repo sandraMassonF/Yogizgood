@@ -44,7 +44,16 @@
 					{# <p>1 heure : 
 					10 € | Proposé dans une formule
 					</p>#}
-                    <a href="" class="btn bg_marron">Je réserve !</a>
+                    
+                    <a href="{{ path('app_user', { 'id': session.id }) }}" class="btn bg_marron">Je réserve !</a>
+
+{# {% for event in events %}
+    <div class="event">
+        <span class="event-title">{{ event.description }}</span>
+        <a href="{{ path('app_user', { 'id': event.id }) }}">Réserver</a>
+    </div>
+{% endfor %}    #}
+
 			</div> 
 		</section>
 		</body>

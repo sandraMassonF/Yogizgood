@@ -3,7 +3,6 @@
 namespace App\Form;
 
 use App\Entity\Kind;
-// use App\Entity\Kind;
 
 use App\Entity\Session;
 use Symfony\Component\Form\AbstractType;
@@ -38,7 +37,6 @@ class SessionType extends AbstractType
                 'class' => 'formulaire'
                 ]
             ])
-
         ;
     }
 

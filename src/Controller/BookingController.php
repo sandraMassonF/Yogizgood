@@ -56,4 +56,20 @@ class BookingController extends AbstractController
 
         return $this->render('booking/index.html.twig', ['events'=>$events, 'cours'=>$cours]);
     }
+
+    #[Route('/booking/{id}', name: 'app_booking_id', methods: ['POST'])]
+
+    public function book(Session $session): Response
+
+    {
+    $booking = new Booking();
+    $booking->setSession($session);
+    $booking->setUser($this->getUser());
+    $entityManager = $this->getDoctrine()->getManager();
+    $entityManager->persist($booking);
+    $entityManager->flush();
+
+  
+    return $this->redirectToRoute('app_user');
+}
 }
