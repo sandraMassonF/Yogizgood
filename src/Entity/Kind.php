@@ -77,9 +77,10 @@ class Kind
         return $this;
     }
 
-    public function __toString()
+    public function __toString() : string
         {
             return $this->type;
+            return $this->kind;
         }
 
     public function getType(): ?string
@@ -89,10 +90,11 @@ class Kind
 
     public function setType(string $type): self
     {
-        $this->type = $type;
+    $this->type = $type;
 
-        return $this;
+    return $this;
     }
+
 }
 
 

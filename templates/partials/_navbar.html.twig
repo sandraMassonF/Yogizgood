@@ -1,14 +1,26 @@
 <header>
-        <nav>
+    <nav>
             
-            <ul>
-                <a href={{ path('app_home') }}><img src="{{ asset('img/logoseul.png') }}" alt="logo yogizgood"></a>
-                <li><a href={{ path('app_apropos') }}>A propos</a></li>
-                <li><a href={{ path('app_lescours') }}>Les cours</a></li>
-                <li><a href={{ path('app_contact') }}>Contact</a></li>
-                <li><a href={{ path('app_login') }}>Connexion</a></li>
-            </ul>
-        </nav>
-    </header>
+        <ul>
+                <a href="{{ path('app_home') }}"><img src="{{ asset('img/logoseul.png') }}" alt="logo yogizgood"></a>
+                <li><a href="{{ path('app_apropos') }}">A propos</a></li>
+                <li><a href="{{ path('app_lescours') }}">Les cours</a></li>
+                <li><a href="{{ path('app_contact') }}">Contact</a></li>
+                {% if app.user is empty %}
+                <li><a href="{{ path('app_login') }}">Connexion</a></li>
+                {% endif %}
+                {% if is_granted('ROLE_ADMIN') %}
+                <li><a href="{{ path('app_admin') }}">Administration</a></li>
+                <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
+                    
+                {% elseif is_granted('IS_AUTHENTICATED_FULLY') %}
+                <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
+                <li><a href="{{ path('app_userprofile') }}">Mon compte</a></li>   
+                {% endif %}
+             
+                
+        </ul>
+    </nav>
+</header>
 
     

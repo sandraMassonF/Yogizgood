@@ -17,13 +17,13 @@ class Session
     private ?int $id = null;
 
     #[ORM\Column]
-    private ?int $duration = null;
+    private ?int $duration = 1;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date = null;
 
     #[ORM\Column]
-    private ?int $places = null;
+    private ?int $places = 9;
 
     #[ORM\ManyToOne(inversedBy: 'sessions')]
     #[ORM\JoinColumn(nullable: false)]
