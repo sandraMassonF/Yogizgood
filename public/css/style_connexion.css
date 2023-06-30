@@ -1,24 +1,21 @@
-.logo_yogizgood{
-    background-image: url(../img/yogizgoodlogo.png);
-    width: 40%;
-    height: 30vh;
-    background-size: 85%;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin: auto;
-    margin-bottom: 20px;
-}
-
 .titre_nom{
     text-align: center;
     margin-top: 50px;
     font-size: 30px;
 }
 
+#calendar{
+    width: 120% !important;
+    height: 52vh !important;
+}
+
+
+
 .connexion{
    text-align: center;
    margin-bottom: 50px;
 }
+
 
 .bouton{
     display: inline-block;
@@ -29,11 +26,6 @@
     font-size: 20px;
 }
 
-.ins{
-    border: 2px solid rgba(128, 128, 128, 0.078);
-    box-shadow: 5px 3px 6px #50775e9e;
-    background-color: rgb(254, 252, 248);
-}
 
 .bouton:hover{
     box-shadow: 6px 6px 8px #50775e9e;
@@ -67,53 +59,13 @@
     width: 40%;
 }
 
-
-
-.box_cards{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.cards img{
-    width: 40%;
-    padding-top: 20px;
-    
-}
-
-.cards {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 20%;
-    height: 45vh;
-    margin: auto;
-    text-align: center;
-    background-color: #F6F2E6;
-}
-
-.cards h5{
-   margin-top: 35px;
-   font-size: 25px;
-}
-
-.cards p{
-    margin-top: 35px;
-    font-size: 22px;
-}
-
 .box_calendrier{
-    display: flex;
-    justify-content: center;
-    margin: auto;
-
-}
-
-
-.box_historique{
+    width: 70%;
     display: flex;
     justify-content: space-around;
-    width: 80%;
     margin: auto;
 }
+
 
 .cours_reserves{
     width:600px;
@@ -143,39 +95,6 @@
     font-size: small;
 }
 
-.resa_1{
-    background-color: #C1EFD2;
-}
-
-.resa_2{
-    background-color: #F79E32;
-}
-
-.btn_marron{
-    padding-top: 6px;
-    height: 5vh;
-}
-
-.form_co{
-    border-left: black solid 1px;
-    margin-left: 550px;
-    padding-left: 20px;
-}
-
-.form_co label{
-    width: 200px;
-}
-
-.input_co{
-    width: 500px;
-    height: 4vh;
-    margin: auto;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    border: 2px solid rgba(128, 128, 128, 0.26);
-    padding-left: 8px;
-    
-}
 
 .edit{
     width: 30px;

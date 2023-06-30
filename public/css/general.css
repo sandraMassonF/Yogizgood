@@ -34,41 +34,22 @@
   font-family: 'Bree Light';
 }
 
-nav{
-  background-color: rgb(193, 239, 210);
-  height: 20vh;
-  width: 100%;
-  position:fixed;
-  top:0;
-  z-index:1000;
+.navbar{
+  background-color: #C1EFD2 !important; 
   box-shadow: 5px 3px 6px #50775e9e;
   border-radius: 10px;
-
 }
 
-
-nav ul{
-  display: flex;
-  justify-content: space-around;
-  align-items:center;
-  
+.navbar img{
+  width: 170px;
+  height: 170px;
+  margin-right:70px;
 }
 
-nav ul a img{
-  width: 190px;
-}
-
-nav ul li a{
-  text-decoration: none;
-  color: black;
+.nav-item{
   font-style: italic;
-  
-}
-
-nav ul li{
-  list-style: none;
-  margin: 4%;
   font-size: 28px;
+  margin: 27px;
 }
 
 header nav ul li:hover{
@@ -223,3 +204,4 @@ footer img{
   width: 40%;
   margin: auto;
 }
+

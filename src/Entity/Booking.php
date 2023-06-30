@@ -29,7 +29,7 @@ class Booking
 
     public function __construct()
     {
-        $this->user = new ArrayCollection();
+        $this->bookingDate=new \DateTime('now');
     }
 
     public function getId(): ?int

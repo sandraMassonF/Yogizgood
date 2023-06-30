@@ -4,8 +4,10 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
+use App\Entity\Booking;
 use App\Repository\UserRepository;
 use App\Repository\BookingRepository;
+use App\Controller\BookingDeleteController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -35,8 +37,12 @@ class UserController extends AbstractController
             $user = $this->getUser();
             return $this->render('user/show.html.twig', [
                 'user' => $user,
-                'bookings' => $booking_users
+                'bookings' => $booking_users,
+                'booked' => $bookings
             ]);
+
+        
+             
     }
 
 
@@ -58,4 +64,20 @@ class UserController extends AbstractController
             'form' => $form,
         ]);
     }
+
+    #[Route('/profile/booking', name: 'app_user_booking_delete', methods: ['POST'])]
+
+    public function delete(Request $request, Booking $booking, BookingRepository $bookingRepository): Response
+    {
+    // Vérifie la validité du jeton CSRF
+    if ($this->isCsrfTokenValid('delete'.$booking->getId(), $request->request->get('_token'))) {
+        // Supprime la réservation de la base de données
+        $bookingRepository->remove($booking, true);
+    }
+
+    // Redirige vers la page d'index des réservations après la suppression
+    return $this->redirectToRoute('app_booking_delete_index', [], Response::HTTP_SEE_OTHER);
+}
+
+
 }

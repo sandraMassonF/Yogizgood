@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Booking{% endblock %}
+
+{% block body %}
+    <h1>Create new Booking</h1>
+
+    {{ include('booking_delete/_form.html.twig') }}
+
+    <a href="{{ path('app_booking_delete_index') }}">back to list</a>
+{% endblock %}

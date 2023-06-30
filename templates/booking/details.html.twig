@@ -25,9 +25,6 @@
                 </h4>
                     {{ session.date|date('H:i') }}<br>
 				    <p>#places restantes</p>
-				{# {% else %}
-                <span class="creneau ligne">pas de session ce jour
-                </span> #}
                 </a>
 			{% endfor %}
 			</div>
@@ -45,7 +42,7 @@
 					10 € | Proposé dans une formule
 					</p>#}
                     
-                    <a href="{{ path('app_user', { 'id': session.id }) }}" class="btn bg_marron">Je réserve !</a>
+                    <a href="{{ path('app_booking_id', { 'id': session.id }) }}" class="btn bg_marron">Je réserve !</a>
 
 {# {% for event in events %}
     <div class="event">
@@ -78,7 +75,7 @@
                 headerToolbar: {
                     start: 'prev,next today',
                     center: 'title',
-                    end: 'dayGridMonth,timeGridWeek'
+                    end: 'dayGridMonth'
                 },
                 firstDay: 1,
                 businessHours: [

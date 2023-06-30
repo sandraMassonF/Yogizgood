@@ -12,14 +12,14 @@
 
 <div class="tab">
     <button class="tablinks" onclick="openCity(event, 'Profil')">Profil</button>
-    {# <button class="tablinks" onclick="openCity(event, 'Mes formules')">Mes formules</button> #}
+   
     <button class="tablinks" onclick="openCity(event, 'Calendrier')">Calendrier</button>
-    {# <button class="tablinks" onclick="openCity(event, 'Historique')">Historique</button> #}
+ 
   </div>
   
   <div id="Profil" class="tabcontent">
   <div class="infos container mb-5">  
-    <table class="table ">
+    <table class="table">
         <tbody>
             <tr>
                 <th>Prénom</th>
@@ -43,59 +43,50 @@
     </div>
     </div>
   
-  {# <div id="Mes formules" class="tabcontent">
-    <div class="box_cards">
-      <div class="cards">
-          <img src="../img/yogie1.png" alt="yoggie">
-          <h5>Carte 10 cours présentiel</h5>
-          <p>Cours restants : <span class="cours_restant">#5</span><br>
-          <a href="#" class="btn_marron">Je réserve</a>
-      </div>
-  
-      <div class="cards">
-          <img src="../img/yogie2.png" alt="yoggie">
-          <h5>Carte 10 cours en ligne</h5>
-          <p>Cours restants : <span class="cours_restant">#7</span><br>
-          <a href="#" class="btn_marron">Je réserve</a>
-      </div>
-  </div>  
-  </div> #}
-  
   <div id="Calendrier" class="tabcontent">
   <main class="box_calendrier">
+    <div class="calendrier">
     	<div id="calendar">
         </div>
+    </div>
+    <div class="detail">
+{% for booking in booked %}
+  <table class="table">
+        <tbody>
+            <tr>
+                <th>BookingDate</th>
+                <td>{{ booking.bookingDate ? booking.bookingDate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>BookingDate</th>
+                <td>{{ booking.session.kind.description ? booking.session.kind.description }}</td>
+            </tr>
+        </tbody>
+    </table>
 
-    {% for details in bookings %}
-    <div>
-      <span>{{details.kind}}</span>
-      </div>
-    {% endfor %}
-     
-      <p class="txt_marron">Attention, tout cours annulé moins de 6h à l'avance sera compté comme dû.</p>
+    <a href="{{ path('app_booking_delete_index') }}">back to list</a>
+
+    <a href="{{ path('app_booking_delete_edit', {'id': booking.id}) }}">edit</a>
+
+    {{ include('booking_delete/_delete_form.html.twig') }}
+{% endfor %}
+
+
+        {# {% for booking in bookings %}
+            <div class="event">
+            <span class="event-title">{{ booking.description }}</span>
+            <span class="event-time">{{ booking.start }}</span>
+        
+    </div>
+        {% endfor %} #}
+       
+        <p class="txt_marron">Attention, tout cours annulé moins de 6h à l'avance sera compté comme dû.
+        </p>
     </div>
   </main>
   </div>
   
-  {# <div id="Historique" class="tabcontent">
-    <main class="box_historique">
-      <div class="achats">
-          <h5 class="titreh3 txt_vert">Achats</h5>
-          <ul>
-              <li>#Date #Type #Prix</li>
-              <li>#Date #Type #Prix</li>
-          </ul>
-      </div>
   
-      <div class="details">
-          <h5 class="titreh3 txt_vert">Détails</h5>
-          <ul>
-              <li>#Date #Heure #Type</li>
-              <li>#Date #Heure #Type</li>
-          </ul>
-      </div>
-  </main>
-  </div> #}
 {% endblock %}
 {% block javascripts %}
     <script src = "../js/main_connexion.js"></script>
