@@ -73,6 +73,6 @@ class BookingDeleteController extends AbstractController
             $bookingRepository->remove($booking, true);
         }
 
-        return $this->redirectToRoute('app_booking_delete_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_user', [], Response::HTTP_SEE_OTHER);
     }
 }

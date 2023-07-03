@@ -78,7 +78,7 @@ class SessionController extends AbstractController
     {
         // Rendre la vue Twig 'session/show.html.twig' avec la session spécifiée
         return $this->render('session/show.html.twig', [
-            'session' => $session,
+            'session' => $session
         ]);
     }
 }

@@ -4,13 +4,14 @@
 
 {% block body %}
  
-    <body>
-       <h2 class="titrepage">Les cours</h2>
+<body>
+<h2 class="titrepage">Les cours</h2>
 
-       <main>
-       <section class="cours bg_blcasse">          
-       <a href={{ path('app_session_index') }}>Accéder au calendrier des cours</a>
-            <img src="../img/logoyoggie1.png" alt="yoggie assise">
+<main>
+    <section class="cours bg_blcasse">          
+        <span class="calend"><a href={{ path('app_session_index') }}><img src="{{ asset('img/calendar.png') }}" alt="calendrier">Accéder au calendrier de réservation</a></span>
+
+        <img src="{{ asset('img/logoyoggie1.png') }}" alt="yoggie assise">
     
         <div class="presentiel">
             <h4>Cours de yoga en présentiel</h4>
@@ -27,9 +28,9 @@
             <h5 class="horaires_tarifs">Tarifs</h5>
             <p><span class="seanceofferte">La 1ère scéance est offerte!</span><br>
             Cours à l'unité : 12€<br>
-            <a href="#" class="btn_marron">Je réserve!</a><br>
+            <a href="#" class="btn bg_marron col-2 txt_blc">Je réserve!</a><br>
             Carte de 10 cour : 110€<br>
-            <a href="#" class="btn_marron">Je commande</a></p>
+            <a href="#" class="btn bg_marron col-2 txt_blc">Je commande</a></p>
             <p class="txt2">Il faut réserver votre place via ce site pour chaque cours auquel vous souhaitez participer.<br>
                 <span class="txt_marron">Attention, tout cours annulé moins de 6h à l'avance sera compté comme dû.</span>
             </p>
@@ -52,16 +53,16 @@
             
             <p>Tarif Séance individuelle : 50€<br>
            
-            <a href="#" class="btn_marron">Je réserve!</a></p>
+            <a href="#" class="btn bg_marron col-2 txt_blc">Je réserve!</a></p>
             <p class="txt2">Il faut réserver votre place via ce site pour chaque cours auquel vous souhaitez participer.<br>
                 <span class="txt_marron">Attention, tout cours annulé moins de 6h à l'avance sera compté comme dû.</span>
             </p>
 
         </div>
-       </section>
+    </section>
 
 
-       <section class="cours bg_blcasse">          
+    <section class="cours bg_blcasse">          
         <img src="../img/logoyoggie2.png" alt="yoggie debout">
 
         <div class="presentiel">
@@ -78,9 +79,9 @@
         <h5 class="horaires_tarifs">Tarifs</h5>
         <p><span class="seanceofferte">La 1ère scéance est offerte!</span><br>
         Cours à l'unité : 10€<br>
-        <a href="#" class="btn_marron">Je réserve!</a><br>
+        <a href="#" class="btn bg_marron col-2 txt_blc">Je réserve!</a><br>
         Carte de 10 cour : 90€<br>
-        <a href="#" class="btn_marron">Je commande</a></p>
+        <a href="#" class="btn bg_marron col-2 txt_blc">Je commande</a></p>
         <p class="txt2">Il faut réserver votre place via ce site pour chaque cours auquel vous souhaitez participer.<br>
             <span class="txt_marron">Attention, tout cours annulé moins de 6h à l'avance sera compté comme dû.</span>
         </p>
@@ -88,7 +89,7 @@
         <h4>Planning des cours</h4>
         <img src="../img/calendrier.png" alt="calendrier des cours" id="planning">
 
-    </div>
+        </div>
     </section>
 
     <section class="cours bg_beige">          
@@ -104,14 +105,14 @@
         <p>Programmes disponibles :<br>
             La routine matin................... 75€<br>
             <span class="txt2">7 vidéos, une par jour pour une routine journalière. Bien-être garanti tous les jours!</span><br>
-            <a href="#" class="btn_marron">Je découvre!</a><br>
+            <a href="#" class="btn bg_marron col-3 txt_blc">Je découvre!</a><br>
             Yoga, mode de vie................ 120€<br>
             <span class="txt2">12 vidéos, adaptées en fonction de vos humeurs</span><br>
-            <a href="#" class="btn_marron">Je découvre!</a></p>
+            <a href="#" class="btn bg_marron col-3 txt_blc">Je découvre!</a></p>
 
             <div class="logo_yogizgood"></div>
-    </div>  
+        </div>  
     </section>
-    </main>
-    </body>
+</main>
+</body>
 {% endblock %}

@@ -1,32 +1,7 @@
-{# <header>
-    <nav>
-            
-        <ul>
-                <a href="{{ path('app_home') }}"><img src="{{ asset('img/logoseul.png') }}" alt="logo yogizgood"></a>
-                <li><a href="{{ path('app_apropos') }}">A propos</a></li>
-                <li><a href="{{ path('app_lescours') }}">Les cours</a></li>
-                <li><a href="{{ path('app_contact') }}">Contact</a></li>
-                {% if app.user is empty %}
-                <li><a href="{{ path('app_login') }}">Connexion</a></li>
-                {% endif %}
-                {% if is_granted('ROLE_ADMIN') %}
-                <li><a href="{{ path('app_admin') }}">Administration</a></li>
-                <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
-                    
-                {% elseif is_granted('IS_AUTHENTICATED_FULLY') %}
-                <li><a href="{{ path('app_user') }}">Mon compte</a></li>   
-                <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
-                {% endif %}
-             
-                
-        </ul>
-    </nav>
-</header> #}
-
 <header>
     <nav class="navbar navbar-expand-xxl" aria-label="Ninth navbar example">
         <div class="container-xxl">
-            <a class="navbar-brand" href="{{ path('app_home') }}"><img src="../img/logoseul.png" alt="Bootstrap"></a>
+            <a class="navbar-brand" href="{{ path('app_home') }}"><img src="{{ asset('img/logoseul.png') }}" alt="logo Yogizgood"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>

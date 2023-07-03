@@ -18,7 +18,7 @@
 		    </div>		
 
 			<div class="creneaux">
-            <h4>Créneaux disponibles :</h4>
+            <h4>Créneaux sélectionné :</h4>
 			{% for session in cours %}
                 <a class=" btn creneau" href="{{ path('app_booking_details', {'session': session.id}) }}">
 				<h4 class="date_creneau">{{ session.date|date('d/m/Y') }}
@@ -42,7 +42,7 @@
 					10 € | Proposé dans une formule
 					</p>#}
                     
-                    <a href="{{ path('app_booking_id', { 'id': session.id }) }}" class="btn bg_marron">Je réserve !</a>
+                    <a href="{{ path('app_booking_id', { 'id': session.id }) }}" class="btn bg_marron txt_blc col-3">Je réserve !</a>
 
 {# {% for event in events %}
     <div class="event">

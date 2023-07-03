@@ -19,7 +19,7 @@ class UserController extends AbstractController
     #[Route('/profile', name: 'app_user', methods: ['GET'])]
     public function show(BookingRepository $bookingRepository):Response
     {
-        $bookings = $bookingRepository->findAll();
+        $bookings = $bookingRepository->findBy(['user' => $this->getUser()]);
         $booking_users = [];
 
         foreach ($bookings as $booking) {
@@ -39,10 +39,7 @@ class UserController extends AbstractController
                 'user' => $user,
                 'bookings' => $booking_users,
                 'booked' => $bookings
-            ]);
-
-        
-             
+            ]);          
     }
 
 

@@ -1,13 +1,12 @@
 .contener{
   display: flex;
   justify-content: space-around;
-  width: 80%;
+  width: 70%;
   height: 60vh;
   margin: auto;
 }
 
 .titreh3{
-  text-align: center;
   margin-bottom: 50px;
   margin-top: 30px;
  

@@ -14,29 +14,36 @@
     <main>   
         <section class="bg_blcasse">
             <h2>Evénements à venir</h2>
+
             <div class="slideshow-container">
+
                 <div class="mySlides">
-                <img src="../img/atelier_détox.svg" alt="atelier détox">
-                <div class="detox"><h4>Samedi 18 mars 2023 | GAP</h4><br>
-                <p>Atelier Yoga et Naturo<br>
-                Détox Printanière</p><br>
-                <a href="#" class="btn_beige">S'inscrire</a>
+                <img src="{{ asset('img/atelier_detox.svg') }}" alt="atelier détox">
+                <div class="detox">
+                    <h4>Samedi 26 août 2023 | GAP</h4>
+                    <br>
+                    <p>Atelier Yoga et Naturo<br>
+                    Détox Printanière
+                    </p><br>
+                    <a href="#" class="btn bg_blanc col-3">S'inscrire</a>
                 </div>
-            </div>
-    
+                </div>
                    
-            <div class="mySlides">
-              <img src="../img/atelier_circulation.svg" alt="atelier circulation">
-              <div class="circulation"><h4>Samedi 27 mai 2023 | GAP</h4><br>
-              <p>Atelier Yoga et Naturo<br>
-                Circulation Sanguine</p><br>
-                <a href="#" class="btn_beige">S'inscrire</a>
+                <div class="mySlides slide2">
+                <img src="{{ asset('img/atelier_circulation.svg') }}" alt="atelier circulation">
+                <div class="circulation">
+                    <h4>Samedi 07 octobre 2023 | GAP</h4>
+                    <br>
+                    <p>Atelier Yoga et Naturo<br>
+                    Circulation Sanguine
+                    </p><br>
+                    <a href="#" class="btn bg_blanc col-3">S'inscrire</a>
                 </div>
-            </div>
+                </div>
            
+        
             <a class="prev" onclick="plusSlides(-1)"><div class="flecheg"></div></a>
             <a class="next" onclick="plusSlides(1)"><div class="fleched"></div></a>  
-            
             </div>
                        
             
@@ -44,63 +51,65 @@
               <span class="dot" onclick="currentSlide(1)"></span> 
               <span class="dot" onclick="currentSlide(2)"></span>
             </div>
+     
         </section>
 
     <!-- Tarifs -->
     <section class="bg_beige">
         <h2>Présentation et réservations</h2>
         <div class="yoggies">
-        <img src="../img/yogie1.png" alt="yoggie assise">
-        <img src="../img/yogie2.png" alt="yoggie debout">
-        <img src="../img/ordi.png" alt="ordinateur">
+        <img src="{{ asset('img/yogie1.png') }}" alt="yoggie assise">
+        <img src="{{ asset('img/yogie2.png') }}" alt="yoggie debout">
+        <img src="{{ asset('img/ordi.png') }}" alt="ordinateur">
         </div>
     </section>
 
     <section class="cards">
+
         <div class="card-container">
-        <div class="card-title">
-         <h5>Cours de yoga en présentiel</h5>
-        </div>
-        <div class="card-contenu">
-              <p class="card-text-top">Envie de prendre du temps pour soi, rencontrer et échanger avec les autres?
-              </p>
-              <h5>Tarifs</h5>
-              <p class="card-text-bot">Cours à l'unité..................... 12€<br>
+            <div class="card-title">
+                <h5>Cours de yoga en présentiel</h5>
+            </div>
+            <div class="card-contenu">
+                <p class="card-text-top">Envie de prendre du temps pour soi, rencontrer et échanger avec les autres?
+                </p>
+                <h5>Tarifs</h5>
+                <p class="card-text-bot">Cours à l'unité..................... 12€<br>
                   Carte 10 cours...................... 110€
-              </p>
-              <a href="#" class="btn_marron">Je commande</a>
-        </div>
+                </p>
+                <a href="{{ path('app_session_index') }}" class="btn txt_blc bg_marron col-4 mx-auto mb-3">Je réserve</a>
+            </div>
         </div>
         
 
         <div class="card-container">
             <div class="card-title">
-             <h5>Cours de yoga en ligne</h5>
+                <h5>Cours de yoga en ligne</h5>
              </div>
              <div class="card-contenu">
-             <p class="card-text-top">Vous préférez la tranquillité de votre domicile?
-             </p><br>
-             <h5>Tarifs</h5>
-             <p class="card-text-bot">Cours à l'unité..................... 10€<br>
+                <p class="card-text-top">Vous préférez la tranquillité de votre domicile?
+                </p><br>
+                <h5>Tarifs</h5>
+                <p class="card-text-bot">Cours à l'unité..................... 10€<br>
                  Carte 10 cours...................... 90€
-             </p>
-             <a href="#" class="btn_marron">Je commande</a>
+                </p>
+                 <a href="{{ path('app_session_index') }}" class="btn txt_blc bg_marron col-4 mx-auto mb-3">Je réserve</a>
             </div>
-             </div>
+        </div>
 
-       <div class="card-container">
-        <div class="card-title">
-             <h5>Programmes en ligne</h5>
-             </div>
-             <div class="card-contenu">
-             <p class="card-text-top">Vous voulez pratiquer à votre rythme?
-             </p><br>
-             <h5>Tarifs</h5>
-             <p class="card-text-bot">La routine matin................... 75€<br>
-              Yoga, mode de vie.............. 120€
-            </p>
-             <a href="#" class="btn_marron">Je commande</a>
-         </div>
+        <div class="card-container">
+            <div class="card-title">
+                <h5>Programmes en ligne</h5>
+            </div>
+            <div class="card-contenu">
+                <p class="card-text-top">Vous voulez pratiquer à votre rythme?
+                </p><br>
+                <h5>Tarifs</h5>
+                <p class="card-text-bot">La routine matin................... 75€<br>
+                Yoga, mode de vie.............. 120€
+                </p>
+                <a href="{{ path('app_cours_videos') }}" class="btn txt_blc bg_marron col-4 mx-auto mb-3">Je réserve</a>
+            </div>
         </div>
         </section>
 

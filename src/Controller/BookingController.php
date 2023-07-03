@@ -39,7 +39,7 @@ class BookingController extends AbstractController
     public function liste(SessionRepository $sessionRepository)
     {
         $cours = $sessionRepository->findAll();
-
+       
         $events = [];
 
         foreach ($cours as $cour) {
@@ -55,7 +55,7 @@ class BookingController extends AbstractController
 
             $events[] = $event;
         }
-
+    // dd($cours);
         return $this->render('booking/index.html.twig', ['events'=>$events, 'cours'=>$cours]);
     }
 

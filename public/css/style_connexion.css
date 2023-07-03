@@ -4,48 +4,84 @@
     font-size: 30px;
 }
 
+.titre_nom img{
+    padding: 50px;
+}
+
+.titre{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    background-color: #c1efd280;
+    padding: 20px;
+}
+
+.reservations{
+    margin-top: 70px;
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: auto;
+}
+
+.calendrier{
+    width: 40%;
+}
+
 #calendar{
-    width: 120% !important;
-    height: 52vh !important;
+    width: 100% !important;
+    height: 65vh !important;
+}
+
+#calendar button{
+    background-color: #BF8B68 !important;
+    border: 1px solid #ac7d5e !important;
+    box-shadow: 2px 2px 4px #9b9591 !important; 
+}
+
+#calendar a{
+    color: #87624a;
 }
 
 
+.affichage{
+    padding-top: 80px;
+}
+
+.informations{
+    width: 30%;
+    margin: auto;
+}
+
+.table{
+    margin-left: 60px;
+}
+
+.table th{
+    border: none !important;
+    border-left: 2px solid rgba(49, 49, 49, 0.37) !important;
+    padding-left: 50px !important;
+}
+
+.table td{
+    border: none !important;
+}
+
+.btn_admin{
+    margin-left: 190px !important;
+    margin-top: 30px !important;
+    margin-bottom: 50px !important;
+}
+
+.add{
+    margin-top: -10px !important;
+}
 
 .connexion{
    text-align: center;
    margin-bottom: 50px;
 }
 
-
-.bouton{
-    display: inline-block;
-    width: 250px ;
-    text-decoration: none;
-    padding: 20px;
-    margin: 20px;
-    font-size: 20px;
-}
-
-
-.bouton:hover{
-    box-shadow: 6px 6px 8px #50775e9e;
-    transform: scale(1.1);
-}
-
-.form{
-    display: flex;
-    flex-direction: column;
-}
-
-.input{
-    width: 600px;
-    height: 4vh;
-    margin: auto;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    border: 2px solid rgba(128, 128, 128, 0.26);
-    padding-left: 8px;
-}
 
 .btn_marron{
     font-size: large;
@@ -67,108 +103,17 @@
 }
 
 
-.cours_reserves{
-    width:600px;
-    border-left: solid #BF8B68 1px;
-    padding-left: 80px;
-}
-
-.cours_reserve{
-    justify-content: space-between;
-    width: 450px;
-    height: 5vh;
-    padding-top: 7px;
-    display: inline-block;
-    text-align: center;
-    margin-top: 50px;
-}
-
-.delete{
-    width: 20px;
-    margin-left: 20px;
-}
-
-
 .txt_marron{
-    margin-top: 80px;
-    margin-left: 20px;
-    font-size: small;
-}
-
-
-.edit{
-    width: 30px;
-    margin-left: 15px;
-    border-radius: 3px;
-}
-
-.edit:hover{
-    box-shadow: 6px 6px 8px #50775e28;
-    transform: scale(1.1);
+    margin: -20px 0 50px 20px;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 .wrapper{
     margin-right: 150px;
 }
 
-.achats, .details{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 50%;
-}
-
-.details{
-    border-left: solid #BF8B68 1px;
-}
-
-
 .titreh3{
     margin-bottom: 50px;
 }
 
-.box_historique ul{
-    line-height: 60px;
-}
-
-.creneaux{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-
-.tab {
-    overflow: hidden;
-    display: flex;
-    justify-content: space-around;
-    margin-top: 60px;
-    margin-bottom: 80px;
-  }
-  
-
-  .tab button {
-    width: 250px;
-    background-color: inherit;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-    font-size: 24px;
-    text-decoration: underline;
-  }
-  
-  .tab button:hover {
-    background-color: #DDA078;
-    
-  }
-  
-  .tab button.active {
-    background-color: #BF8B68;
-  }
-  
-  .tabcontent {
-    display: none;
-    height: 500px;
-
-  }
