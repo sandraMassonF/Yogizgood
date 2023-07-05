@@ -19,12 +19,15 @@
 
 			<div class="creneaux">
             <h4>Créneaux disponibles :</h4>
-			{% for session in cours %}
-                <a class=" btn creneau" href="{{ path('app_booking_details', {'session': session.id}) }}">
+			{% for session in creneaux %}
+                <a class=" btn creneau" href="{{ path('app_booking_details', {'session': session.id , 'details' : session.date|date('Y-m-d')}) }}">
 				<h4 class="date_creneau">{{ session.date|date('d/m/Y') }}
                 </h4>
-                    {{ session.date|date('H:i') }}<br>
-				    <p>#places restantes</p>
+                    <p>{{ session.date|date('H:i') }}<br>
+                    {{ session.kind }}
+                    </p>
+                    
+				    {# <p>#places restantes</p> #}
                 </a>
 			{% endfor %}
 			</div>
@@ -41,9 +44,7 @@
 
     <script>
     // Récupérer les réservations depuis la variable PHP 'events' et les encoder en JSON
-    const bookings = {{ events|json_encode|raw }};
-    console.log(bookings);
-    
+    const bookings = {{ events|json_encode|raw }};    
     // Attendre que le DOM soit chargé
     document.addEventListener('DOMContentLoaded', function () {
         // Récupérer l'élément HTML avec l'ID 'calendar'
@@ -65,13 +66,7 @@
             firstDay: 1,
             businessHours: [
                 {
-                    daysOfWeek: [
-                        1,
-                        2,
-                        3,
-                        4,
-                        5
-                    ],
+                    daysOfWeek: [1, 2, 3, 4, 5],
                     startTime: '09:00',
                     endTime: '20:00'
                 }
@@ -91,6 +86,11 @@
                     return ['bg_marron'];  // Ajouter la classe 'bg_marron'
                 }
             },
+            eventClick: function (info) {
+                var eventObj = info.event;
+                const props = eventObj.toJSON().extendedProps;
+                window.location.href = props.booking_url;
+            }
         });
 
         // Afficher le calendrier

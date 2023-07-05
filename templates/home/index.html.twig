@@ -9,11 +9,12 @@
 {% block title %}YOGIZGOOD{% endblock %}
 
 {% block body %}
-
 <body class="bg_beige">
+    <header class="header">
+    </header>
     <main>   
         <section class="bg_blcasse">
-            <h2>Evénements à venir</h2>
+            <h2 class="titreh2">Evénements à venir</h2>
 
             <div class="slideshow-container">
 
@@ -55,80 +56,77 @@
         </section>
 
     <!-- Tarifs -->
-    <section class="bg_beige">
-        <h2>Présentation et réservations</h2>
-        <div class="yoggies">
-        <img src="{{ asset('img/yogie1.png') }}" alt="yoggie assise">
-        <img src="{{ asset('img/yogie2.png') }}" alt="yoggie debout">
-        <img src="{{ asset('img/ordi.png') }}" alt="ordinateur">
-        </div>
-    </section>
 
-    <section class="cards">
+<h2 class="titreh2">Prestations et réservations</h2>
+<section class="card_section">
+	<article class="cards ">
+		<img src="{{ asset('img/yogie1.png') }}" class="card-img-top" alt="yoggie assise">
+		<header class="card-title">
+			<h3>Cours de yoga en présentiel</h3>
+		</header>
+		<div class="card-contenu bg_blcasse">
+			<p class="card-text-top">Envie de prendre du temps pour soi, rencontrer et échanger avec les autres?
+			</p>
+			<h4 class="titre_h4">Tarifs</h4>
+			<p class="card-text-bot">Cours à l'unité..................... 12€<br>
+				Carte 10 cours...................... 110€
+			</p>
+			<a href="{{ path('app_session_index') }}" class="btn txt_blc bg_marron col-4 mx-auto mb-3">Je réserve</a>
+		</div>
+	</article>
 
-        <div class="card-container">
-            <div class="card-title">
-                <h5>Cours de yoga en présentiel</h5>
-            </div>
-            <div class="card-contenu">
-                <p class="card-text-top">Envie de prendre du temps pour soi, rencontrer et échanger avec les autres?
-                </p>
-                <h5>Tarifs</h5>
-                <p class="card-text-bot">Cours à l'unité..................... 12€<br>
-                  Carte 10 cours...................... 110€
-                </p>
-                <a href="{{ path('app_session_index') }}" class="btn txt_blc bg_marron col-4 mx-auto mb-3">Je réserve</a>
-            </div>
-        </div>
-        
+	<article class="cards">
+		<img src="{{ asset('img/yogie2.png') }}" class="card-img-top" alt="yoggie debout">
+		<header class="card-title">
+			<h3>Cours de yoga en présentiel</h3>
+		</header>
+		<div class="card-contenu bg_blcasse">
+			<p class="card-text-top">Envie de prendre du temps pour soi, rencontrer et échanger avec les autres?
+			</p>
+			<h4 class="titre_h4">Tarifs</h4>
+			<p class="card-text-bot">Cours à l'unité..................... 12€<br>
+				Carte 10 cours...................... 110€
+			</p>
+			<a href="{{ path('app_session_index') }}" class="btn txt_blc bg_marron col-4 mx-auto mb-3">Je réserve</a>
+		</div>
+	</article>
 
-        <div class="card-container">
-            <div class="card-title">
-                <h5>Cours de yoga en ligne</h5>
-             </div>
-             <div class="card-contenu">
-                <p class="card-text-top">Vous préférez la tranquillité de votre domicile?
-                </p><br>
-                <h5>Tarifs</h5>
-                <p class="card-text-bot">Cours à l'unité..................... 10€<br>
-                 Carte 10 cours...................... 90€
-                </p>
-                 <a href="{{ path('app_session_index') }}" class="btn txt_blc bg_marron col-4 mx-auto mb-3">Je réserve</a>
-            </div>
-        </div>
+	<article class="cards">
+		<img src="{{ asset('img/ordi.png') }}" class="card-img-top" alt="ordinateur">
+		<header class="card-title">
+			<h3>Cours de yoga en présentiel</h3>
+		</header>
+		<div class="card-contenu bg_blcasse">
+			<p class="card-text-top">Envie de prendre du temps pour soi, rencontrer et échanger avec les autres?
+			</p>
+			<h4 class="titre_h4">Tarifs</h4>
+			<p class="card-text-bot">Cours à l'unité..................... 12€<br>
+				Carte 10 cours...................... 110€
+			</p>
+			<a href="{{ path('app_cours_videos') }}" class="btn txt_blc bg_marron col-4 mx-auto mb-3">Je réserve</a>
+		</div>
+	</article>
+</section>
 
-        <div class="card-container">
-            <div class="card-title">
-                <h5>Programmes en ligne</h5>
-            </div>
-            <div class="card-contenu">
-                <p class="card-text-top">Vous voulez pratiquer à votre rythme?
-                </p><br>
-                <h5>Tarifs</h5>
-                <p class="card-text-bot">La routine matin................... 75€<br>
-                Yoga, mode de vie.............. 120€
-                </p>
-                <a href="{{ path('app_cours_videos') }}" class="btn txt_blc bg_marron col-4 mx-auto mb-3">Je réserve</a>
-            </div>
-        </div>
-        </section>
+
 
         <div class="cours">
             <p>Besoin d'un suivi spécifique adapté à vos besoins? <a href={{ path('app_lescours', {'_fragment': 'cours_ind'}) }} class="lien1">Découvrez mes cours particuliers sur mesure</a><br>
             Vous n'êtes pas sûrs de vous?
             <br>Venez tester et prenez une décision ensuite!<br>
-            <a href="#" class="lien2"><img src="../img/main1.png" alt="doigt" class="doigt">La première séance de yoga est offerte *</a><br>
+            <a href="{{ path('app_session_index') }}" class="lien2"><img src="{{ asset('img/main1.png') }}" alt="doigt" class="doigt">La première séance de yoga est offerte *</a><br>
             <span class="span1">* Hors programmes en ligne et cours particulier</span></p>
         </div>
 
 
 <section class="bg_blcasse">
-    <h2>Témoignages</h2> 
+    <h2 class="titreh2">Témoignages</h2> 
     <div class="temoignages">
         <div class="flecheg"></div>
-        <div class="temoignage"><p>Florence<br><br>
-          « Débutante dans le yoga, j'ai trouvé avec Yogizgood un cours ludique mais adapté à chacun. Il n'y a pas de "routine" car chaque séance est différente.<br>
-          Je commence mon cours fatiguée après une journée de travail et je repars le corps et l'esprit apaisé et je me sens zen! ».
+        <div class="temoignage">
+        <p>Florence<br><br>
+           Débutante dans le yoga, jai trouvé avec Yogizgood un cours ludique mais adapté à chacun. Il n'y a pas de routine car chaque séance est différente.<br>
+          Je commence mon cours fatiguée après une journée de travail et je repars le corps et l'esprit apaisé et je me sens zen.
         </p></div>
         <div class="fleched"></div>
     </div>

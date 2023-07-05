@@ -24,3 +24,19 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " active";
 }
+
+
+// let bgCreneaux = document.getElementsByClassName("creneau"); 
+// let kind = types[i];
+
+// for (let i = 0; i < bgCreneaux.length; i++) {
+//   let creneau = bgCreneaux[i];
+//   if (kind === 'Présentiel') {
+//     creneau.classList.add('bg_mint');
+//   } else if (kind === 'En ligne') {
+//     creneau.classList.add('bg_orange');
+//   } else if (kind === 'Individuel') {
+//     creneau.classList.add('bg_marron');
+//   }
+ 
+// }

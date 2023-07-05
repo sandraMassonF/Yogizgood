@@ -3,8 +3,10 @@
 {% block title %}Planning des cours{% endblock %}
 
 {% block body %}
+<h2 class="titrepage">Calendrier des cours</h2>
+    <div class="container mt-5">
+        
 
-    <div class="container">
         <div id="calendar">
         </div>
             
@@ -15,7 +17,6 @@
     <script>
         
         const bookings = {{ events|json_encode|raw }};
-        console.log(bookings);
         document.addEventListener('DOMContentLoaded', function () {
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -67,6 +68,5 @@
         });
     </script>
 {% endblock %}
-        {# <a href="{{ path('app_session_new') }}" class="btn bg_mint">Ajouter un cours</a> #}
     </div>
 {% endblock %}

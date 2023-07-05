@@ -42,9 +42,8 @@ class SessionRepository extends ServiceEntityRepository
    /**
     * @return Session[] Returns an array of Booking objects
     */
-    public function getByDate($date): array
+    public function getByDate(\DateTime $date): array
     {
-         $date = new \DateTime($date);
          return $this->createQueryBuilder('s')
              ->andWhere('s.date > :startDate')
              ->setParameter(':startDate', $date->format('Y-m-d 00:00:00'))
@@ -55,6 +54,25 @@ class SessionRepository extends ServiceEntityRepository
              ->getResult()
          ;
     }
+
+    /**
+    * @return Session[] Returns an array of Booking objects
+    */
+    public function getNext(): array
+    {
+         $date = new \DateTime('now');
+         return $this->createQueryBuilder('s')
+             ->select("DISTINCT DATE_FORMAT(s.date, '%Y-%m-%d') AS HIDDEN day")
+             ->addSelect("s")
+             ->andWhere('s.date > :startDate')
+             ->setParameter(':startDate', $date->format('Y-m-d 00:00:00'))
+             ->orderBy('s.date', 'ASC')
+             ->groupBy('day')
+             ->getQuery()
+             ->getResult()
+         ;
+    }
+
 
 //    /**
 //     * @return Session[] Returns an array of Session objects

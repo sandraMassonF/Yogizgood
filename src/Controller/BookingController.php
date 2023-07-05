@@ -13,10 +13,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class BookingController extends AbstractController
 {
-    #[Route('/booking/{session}', name: 'app_booking_details', requirements:['session'=> '\d+'])]
-    public function detail(Session $session, SessionRepository $sessionRepository)
+    #[Route('/booking/{details}/{session}', name: 'app_booking_details', requirements:['session'=> '\d+'])]
+    public function detail(Session $session, SessionRepository $sessionRepository, string $details)
     {
-        $cours = $sessionRepository->findAll();
+        $creneaux = $sessionRepository->getByDate(new \DateTime($details));
+        $cours = $sessionRepository->getNext();
+
         $events = [];
 
         foreach ($cours as $cour) {
@@ -33,12 +35,15 @@ class BookingController extends AbstractController
             $events[] = $event;
         }
         // dd($cours);
-        return $this->render('booking/details.html.twig', ['events'=>$events, 'cours'=>$cours, 'session' => $session]);
+        return $this->render('booking/details.html.twig', ['events'=>$events, 'cours'=>$cours, 'session' => $session, 'creneaux'=>$creneaux]);
+        
     }
+    
     #[Route('/booking/{details}', name: 'app_booking')]
-    public function liste(SessionRepository $sessionRepository)
+    public function liste(SessionRepository $sessionRepository, string $details)
     {
-        $cours = $sessionRepository->findAll();
+        $creneaux = $sessionRepository->getByDate(new \DateTime($details));
+        $cours = $sessionRepository->getNext();
        
         $events = [];
 
@@ -56,10 +61,10 @@ class BookingController extends AbstractController
             $events[] = $event;
         }
     // dd($cours);
-        return $this->render('booking/index.html.twig', ['events'=>$events, 'cours'=>$cours]);
+        return $this->render('booking/index.html.twig', ['events'=>$events, 'cours'=>$cours, 'creneaux'=>$creneaux]);
     }
 
-    #[Route('/booking/{id}/reserved', name: 'app_booking_id', methods: ['GET'])]
+    #[Route('/booking/new/{id}/reserved', name: 'app_booking_id', methods: ['GET'])]
     public function book(Session $session, EntityManagerInterface $entityManager): Response
     {
       
@@ -81,5 +86,9 @@ class BookingController extends AbstractController
     
         // Redirection vers la page de l'utilisateur
         return $this->redirectToRoute('app_user');
+
+        if (!$this->getUser()) {
+                return $this->redirectToRoute('target_path');
+            }
     }
 }
