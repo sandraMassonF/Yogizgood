@@ -316,6 +316,16 @@ section{
     height: 30vh;
   }
   
+  .temoignages{
+    width: 100%;
+  }
+  .fleched, .flecheg{
+    display: none;
+  }
+
+  .temoignage p{
+    font-size: 16px;
+  }
 }
 
 @media screen and   (min-width: 280px)  and (max-width: 860px){
@@ -327,12 +337,13 @@ section{
     height: 22vh;
   }
   .flecheg, .fleched {
-    width: 20px;
+    width: 0px;
   }
 
   .detox h4, .circulation h4{ 
     font-size: 16px;
     font-weight: bold;
+    margin-bottom: -10px;
   }
   .detox p, .circulation p{
     font-size: 14px;
@@ -345,5 +356,22 @@ section{
    height: 50vh;
    background-position-y: -100px;
   }
+  .cours{
+    width: 90%;
+    margin: auto;
+  }
+  .doigt{
+    width: 12%;
+  } 
+  .lien1, .lien2{
+    font-size: 18px;
+    text-shadow: none;
+    font-weight: bold;
+  }
+  
+  .temoignage p{
+    font-size: 12px;
+  }
 
+  
 }

@@ -180,6 +180,15 @@ footer img{
  
 }
 
+@media screen and   (min-width: 280px)  and (max-width: 860px){
+  footer p{
+      font-size: 12px;
+      line-height: 25px;
+  }
+}
+
+
+
 #calendar{
   width: 40%;
   margin: auto;
