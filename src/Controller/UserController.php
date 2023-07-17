@@ -73,7 +73,7 @@ class UserController extends AbstractController
     }
 
     // Redirige vers la page d'index des réservations après la suppression
-    return $this->redirectToRoute('app_booking_delete_index', [], Response::HTTP_SEE_OTHER);
+    return $this->redirectToRoute('app_user', [], Response::HTTP_SEE_OTHER);
 }
 
 

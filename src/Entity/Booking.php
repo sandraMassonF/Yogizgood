@@ -20,6 +20,7 @@ class Booking
     private ?\DateTimeInterface $bookingDate = null;
 
     #[ORM\ManyToOne(inversedBy: 'bookings')]
+    
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 

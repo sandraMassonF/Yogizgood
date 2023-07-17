@@ -26,17 +26,30 @@ function showSlides(n) {
 }
 
 
-// let bgCreneaux = document.getElementsByClassName("creneau"); 
-// let kind = types[i];
+// let bgCreneaux = document.getElementsByClassName("creneau");
 
 // for (let i = 0; i < bgCreneaux.length; i++) {
 //   let creneau = bgCreneaux[i];
-//   if (kind === 'Présentiel') {
+// console.log(creneau);
+//   if (creneau.extendedProps.kind === 'Présentiel') {
 //     creneau.classList.add('bg_mint');
-//   } else if (kind === 'En ligne') {
+//   } else if (creneau.extendedProps.kind === 'En ligne') {
 //     creneau.classList.add('bg_orange');
-//   } else if (kind === 'Individuel') {
+//   } else if (creneau.extendedProps.kind === 'Individuel') {
 //     creneau.classList.add('bg_marron');
 //   }
- 
 // }
+
+// let bgCreneaux = document.getElementsByClassName("creneau");
+//                 let kind = types[i];
+
+//                  for (let i = 0; i < bgCreneaux.length; i++) {
+//                     let creneau = bgCreneaux[i];
+//                         if (kind === 'Présentiel') {
+//                         creneau.classList.add('bg_mint');
+//                         } else if (kind === 'En ligne') {
+//                         creneau.classList.add('bg_orange');
+//                         } else if (kind === 'Individuel') {
+//                         creneau.classList.add('bg_marron');
+//                         }
+//                  }

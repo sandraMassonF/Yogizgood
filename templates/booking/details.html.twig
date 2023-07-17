@@ -9,53 +9,42 @@
 
 {% block body %}
 	    <h2 class="titrepage">Réservations</h2>
-	<body>
-	
-		<section class="section">
-            <div class="calendrier">
-			    <div id="calendar">
-                </div>
-		    </div>		
+<body>
+	<section class="section">
+		<div class="calendrier">
+			<div id="calendar"></div>
+		</div>
 
-			<div class="creneaux">
-            <h4>Créneaux sélectionné :</h4>
+		<div class="creneaux">
+			<h4>Créneaux disponibles :</h4>
 			{% for session in creneaux %}
-                <a class=" btn creneau" href="{{ path('app_booking_details', {'session': session.id , 'details' : session.date|date('Y-m-d')}) }}">
-				<h4 class="date_creneau">{{ session.date|date('d/m/Y') }}
-                </h4>
-                    <p>{{ session.date|date('H:i') }}<br>
-                    {{ session.kind }}
-                    </p>
-				    {# <p>#places restantes</p> #}
-                </a>
+				<a class=" btn creneau" href="{{ path('app_booking_details', {'session': session.id , 'details' : session.date|date('Y-m-d')}) }}">
+					<h4 class="date_creneau">{{ session.date|date('d/m/Y') }}
+					</h4>
+					<p>{{ session.date|date('H:i') }}<br>
+						{{ session.kind }}
+					</p>
+				</a>
+               
 			{% endfor %}
-			</div>
+		</div>
 
 
-			<div class="details">
-				<h4>Détails :</h4>
-					<p> Cours de Yoga - {{ session.kind }} -
-						<span>{{ session.date|date('d/m/Y') ~ " à " ~ session.date|date('H:i') }}
-                        </span>
-					</p>
-					<p>3 Place Jules Ferry 05000 GAP | Professeur : Céline Brenier
-					</p>
-					{# <p>1 heure : 
-					10 € | Proposé dans une formule
-					</p>#}
-                    
-                    <a href="{{ path('app_booking_id', { 'id': session.id }) }}" class="btn bg_marron txt_blc col-3">Je réserve !</a>
+		<div class="details">
+			<h4>Détails :</h4>
+			<p>
+				Cours de Yoga - {{ session.kind }} - {{ session.date|date('d/m/Y') ~ " à " ~ session.date|date('H:i') }}
+			</p>
+			<p>
+                3 Place Jules Ferry 05000 GAP | Professeur : Céline Brenier
+			</p>
 
-{# {% for event in events %}
-    <div class="event">
-        <span class="event-title">{{ event.description }}</span>
-        <a href="{{ path('app_user', { 'id': event.id }) }}">Réserver</a>
-    </div>
-{% endfor %}    #}
+			<a href="{{ path('app_booking_id', { 'id': session.id }) }}" class="btn bg_marron txt_blc col-3">Je réserve !</a>
+		</div>
+	</section>
+</body>
 
-			</div> 
-		</section>
-		</body>
+
 	{% endblock %}
 
 	{% block javascripts %}
@@ -64,8 +53,7 @@
 
     <script>
         
-const bookings =
-{{ events|json_encode|raw }};
+const bookings = {{ events|json_encode|raw }};
         document.addEventListener('DOMContentLoaded', function () {
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {

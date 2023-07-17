@@ -284,7 +284,7 @@ section{
   to {opacity: 1}
 }
 
-/* On smaller screens, decrease text size */
+
 @media only screen and (max-width: 300px) {
   .prev, .next,.text {font-size: 11px}
 }
@@ -312,24 +312,38 @@ section{
     font-size: larger;
   }
 
+  .mySlides img{
+    height: 30vh;
+  }
+  
 }
 
-@media screen and   (min-width: 280px)  and (max-width: 780px){
+@media screen and   (min-width: 280px)  and (max-width: 860px){
 
   .cards{
     margin-bottom: 30px;
   }
+  .mySlides{
+    height: 22vh;
+  }
+  .flecheg, .fleched {
+    width: 20px;
+  }
+
+  .detox h4, .circulation h4{ 
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .detox p, .circulation p{
+    font-size: 14px;
+  }
+  .bg_blanc{
+    width: 100px !important;
+    margin-top: -55px !important;
+  }
+  .header {
+   height: 50vh;
+   background-position-y: -100px;
+  }
 
 }
-
-/* media small screen */
-/* .mySlide img{
-  height: 50vh;
-}  
-.detox h4, .circulation h4{ 
-  font-size: 18px;
-
-}
-.detox p, .circulation p{
-  font-size: 16px;
-} */

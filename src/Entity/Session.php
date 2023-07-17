@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: SessionRepository::class)]
 class Session
@@ -19,9 +20,11 @@ class Session
     #[ORM\Column]
     private ?int $duration = 1;
 
+    #[Assert\GreaterThanOrEqual('today')]
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date = null;
 
+    #[Assert\LessThanOrEqual(9)]
     #[ORM\Column]
     private ?int $places = 9;
 

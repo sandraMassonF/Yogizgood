@@ -17,6 +17,12 @@
         </div>
 
         <div class="affichage">
+        {% if booked is empty %}
+        <div class="no_booking">
+        <p>Vous n'avez pas encore de réservation !</p>
+        <a href="{{ path('app_session_index') }}" class="btn txt_blc btn_admin add bg_mint col-6">Ajouter</a>
+        </div>
+        {% else %}
         {% for booking in booked %}
             <table class="table">
                 <tbody>
@@ -40,10 +46,11 @@
             {{ include('booking_delete/_delete_form.html.twig') }}
         <p class="txt_marron">Attention, tout cours annulé moins de 6h à l'avance sera compté comme dû.
         </p>
-
-        {% endfor %}
             <a href="{{ path('app_session_index') }}" class="btn txt_blc btn_admin add bg_mint col-3">Ajouter</a>
         </span>
+
+        {% endfor %}
+        {% endif %}
         </div>
     </div>
         <h3 class="titre">Mes informations</h3>

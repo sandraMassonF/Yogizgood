@@ -34,9 +34,8 @@ class BookingController extends AbstractController
 
             $events[] = $event;
         }
-        // dd($cours);
+       
         return $this->render('booking/details.html.twig', ['events'=>$events, 'cours'=>$cours, 'session' => $session, 'creneaux'=>$creneaux]);
-        
     }
     
     #[Route('/booking/{details}', name: 'app_booking')]
@@ -60,7 +59,7 @@ class BookingController extends AbstractController
 
             $events[] = $event;
         }
-    // dd($cours);
+    
         return $this->render('booking/index.html.twig', ['events'=>$events, 'cours'=>$cours, 'creneaux'=>$creneaux]);
     }
 
